@@ -1,0 +1,100 @@
+[
+  {
+    "year": "2014",
+    "title": "Started Programming & Hardware",
+    "description": "Began with Visual Basic, C# and C/C++ — learning fundamentals of programming, memory management, and how software interacts with hardware. Simultaneously started working with PC hardware: building, diagnosing, and repairing computers.",
+    "type": "milestone",
+    "icon": "code"
+  },
+  {
+    "year": "2015",
+    "title": "Chip-Level Laptop Repair",
+    "description": "Developed expertise in chip-level laptop motherboard repair — BGA reballing, soldering, schematic reading, and power rail diagnostics. Serviced laptops at component level beyond standard board replacements.",
+    "type": "milestone",
+    "icon": "cpu"
+  },
+  {
+    "year": "2016",
+    "title": "First Web Projects",
+    "description": "Expanded into web development — HTML, CSS, JavaScript. Built first personal projects and started understanding client-server architecture and networking fundamentals.",
+    "type": "milestone",
+    "icon": "globe"
+  },
+  {
+    "year": "2018",
+    "title": "Systems & Low-Level Programming",
+    "description": "Deep dive into Windows internals, reverse engineering, and low-level systems programming. Started experimenting with kernel-mode code and driver development.",
+    "type": "milestone",
+    "icon": "terminal"
+  },
+  {
+    "year": "2019",
+    "title": "Joined Acom Information Technology",
+    "description": "Joined Acom Information Technology as Full-Stack Developer & System Administrator. Responsible for web application development, server management, network infrastructure, and IT systems administration.",
+    "type": "work",
+    "icon": "briefcase"
+  },
+  {
+    "year": "2019-2022",
+    "title": "Full-Stack Developer & SysAdmin @ Acom IT",
+    "description": "3 years at Acom Information Technology — built and maintained web platforms, managed servers and network infrastructure, administered IT systems, and provided technical support. Gained deep real-world experience across the full stack and systems administration.",
+    "type": "work",
+    "icon": "briefcase"
+  },
+  {
+    "year": "2022",
+    "title": "Left Acom IT — Joined Cyber Yakku",
+    "description": "Left Acom Information Technology after 3 years to take on a senior role at Cyber Yakku PVT LTD. Continued expanding into HWID authentication systems, kernel development, and mobile apps alongside professional responsibilities.",
+    "type": "milestone",
+    "icon": "rocket"
+  },
+  {
+    "year": "2022 — Present",
+    "title": "Senior Software Developer & Project Manager @ Cyber Yakku PVT LTD",
+    "description": "Leading software development and project delivery at Cyber Yakku PVT LTD. Responsibilities span full-stack web and mobile development, systems engineering, technical architecture, and managing project timelines and cross-functional teams. Driving product strategy and overseeing delivery of production-grade software across multiple domains.",
+    "type": "work",
+    "icon": "briefcase"
+  },
+  {
+    "year": "2022",
+    "title": "Mobile & Cross-Platform Development",
+    "description": "Started Flutter development for iOS and Android. Built cross-platform apps with Firebase backends and real-time geolocation features.",
+    "type": "milestone",
+    "icon": "smartphone"
+  },
+  {
+    "year": "2023",
+    "title": "Dansal App — 800K+ Downloads",
+    "description": "Launched the Dansal App for Sri Lanka's Vesak festival season. Reached 800,000+ downloads and was featured on Sha FM national radio.",
+    "type": "project",
+    "icon": "star"
+  },
+  {
+    "year": "2025",
+    "title": "ExcellentComputers.lk",
+    "description": "Delivered a full production e-commerce platform for a computer hardware retailer in Sri Lanka, live at excellentcomputers.lk.",
+    "type": "project",
+    "icon": "shopping-cart"
+  },
+  {
+    "year": "2026",
+    "title": "The Alpha Platform — Launched",
+    "description": "Built and deployed a full SaaS platform with hardware-ID licensing at thealpha.vip. Serving real users with cryptographic license protection.",
+    "type": "project",
+    "icon": "shield"
+  },
+  {
+    "year": "2026",
+    "title": "Open Source: Weedr & APK-Wooper",
+    "description": "Released two open-source tools — Weedr (secure qBittorrent dashboard) and APK-Wooper (self-hosted APK analysis workspace) — on GitHub.",
+    "type": "milestone",
+    "icon": "git-branch"
+  },
+  {
+    "year": "2026",
+    "title": "Security Research & AI/ML",
+    "description": "Expanding into hypervisor research, detection/anti-detection systems, driver communication architectures, and AI-assisted automation.",
+    "type": "milestone",
+    "icon": "brain"
+  }
+]

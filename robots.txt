@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://l4km47.github.io/sitemap.xml
