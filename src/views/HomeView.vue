@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- HERO -->
-    <section class="hero" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave">
+    <section class="hero" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave" :style="{ '--scroll-y': scrollY }">
       <div class="hero-bg">
         <div class="mesh-blob mesh-blob-1"></div>
         <div class="mesh-blob mesh-blob-2"></div>
@@ -160,7 +160,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useData } from '@/composables/useData'
 import ProjectCard from '@/components/projects/ProjectCard.vue'
 
@@ -170,6 +170,11 @@ const typewriterEl = ref(null)
 
 const mouseX = ref(0)
 const mouseY = ref(0)
+const scrollY = ref(0)
+
+function handleScroll() {
+  scrollY.value = window.scrollY
+}
 
 function handleMouseMove(e) {
   mouseX.value = (e.clientX / window.innerWidth) * 2 - 1
@@ -277,6 +282,11 @@ function typeStep() {
 onMounted(async () => {
   projects.value = await fetchData('/data/projects.json') || []
   typeStep()
+  window.addEventListener('scroll', handleScroll, { passive: true })
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
 })
 </script>
 
@@ -299,6 +309,8 @@ onMounted(async () => {
   overflow: hidden;
   pointer-events: none;
   background: var(--color-bg);
+  will-change: transform;
+  transform: translateY(calc(var(--scroll-y, 0) * 0.28px));
 }
 
 .mesh-blob {
@@ -377,6 +389,9 @@ onMounted(async () => {
   width: 100%;
   margin-top: -10vh;
   /* Shift up to balance bottom text */
+  will-change: transform, opacity;
+  transform: translateY(calc(var(--scroll-y, 0) * -0.18px));
+  opacity: calc(1 - var(--scroll-y, 0) / 450);
 }
 
 .hero-left {
@@ -489,7 +504,7 @@ onMounted(async () => {
   position: absolute;
   bottom: 4vh;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(calc(var(--scroll-y, 0) * 0.4px));
   font-size: clamp(3rem, 7vw, 12rem);
   font-family: var(--font-display);
   font-weight: 900;
@@ -499,6 +514,8 @@ onMounted(async () => {
   pointer-events: none;
   white-space: nowrap;
   letter-spacing: -0.05em;
+  will-change: transform, opacity;
+  opacity: calc(1 - var(--scroll-y, 0) / 600);
 }
 
 .hero-massive-name span {
@@ -508,9 +525,9 @@ onMounted(async () => {
 /* Scroll indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: var(--space-8);
+  bottom: calc(4vh + clamp(3rem, 7vw, 12rem) + var(--space-4));
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(calc(var(--scroll-y, 0) * 0.3px));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -520,6 +537,9 @@ onMounted(async () => {
   font-family: var(--font-mono);
   letter-spacing: 0.1em;
   animation: fadeIn 1s ease 2s both;
+  z-index: 2;
+  will-change: transform, opacity;
+  opacity: calc(1 - var(--scroll-y, 0) / 180);
 }
 
 .scroll-mouse {
@@ -722,6 +742,10 @@ onMounted(async () => {
   .hero-massive-name {
     font-size: 8vw;
     bottom: 4vh;
+  }
+
+  .scroll-indicator {
+    bottom: calc(4vh + 8vw + var(--space-2));
   }
 
   .expertise-grid {
