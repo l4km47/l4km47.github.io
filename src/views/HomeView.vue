@@ -3,9 +3,10 @@
     <!-- HERO -->
     <section class="hero">
       <div class="hero-bg">
-        <div class="hero-orb hero-orb-1"></div>
-        <div class="hero-orb hero-orb-2"></div>
-        <div class="hero-grid"></div>
+        <div class="mesh-blob mesh-blob-1"></div>
+        <div class="mesh-blob mesh-blob-2"></div>
+        <div class="mesh-blob mesh-blob-3"></div>
+        <div class="glass-pane"></div>
       </div>
       <div class="container hero-content">
         <div class="hero-badge reveal">
@@ -283,41 +284,65 @@ onMounted(async () => {
 .hero-bg {
   position: absolute;
   inset: 0;
+  overflow: hidden;
   pointer-events: none;
+  background: var(--color-bg);
 }
 
-.hero-orb {
+.mesh-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.12;
+  filter: blur(100px);
+  opacity: 0.5;
+  animation: float-mesh 15s ease-in-out infinite alternate;
 }
 
-.hero-orb-1 {
-  width: 600px;
-  height: 600px;
-  background: var(--color-primary);
-  top: -100px;
-  left: -100px;
-  animation: float 8s ease-in-out infinite;
+.mesh-blob-1 {
+  width: 80vw;
+  height: 80vw;
+  max-width: 800px;
+  max-height: 800px;
+  background: rgba(79, 237, 58, 0.12); /* primary */
+  top: -20%;
+  left: -10%;
+  animation-delay: 0s;
 }
 
-.hero-orb-2 {
-  width: 500px;
-  height: 500px;
-  background: var(--color-accent);
-  bottom: -100px;
-  right: -100px;
-  animation: float 10s ease-in-out infinite reverse;
+.mesh-blob-2 {
+  width: 60vw;
+  height: 60vw;
+  max-width: 600px;
+  max-height: 600px;
+  background: rgba(6, 212, 126, 0.12); /* accent */
+  bottom: -10%;
+  right: -5%;
+  animation-delay: -5s;
 }
 
-.hero-grid {
+.mesh-blob-3 {
+  width: 50vw;
+  height: 50vw;
+  max-width: 500px;
+  max-height: 500px;
+  background: rgba(124, 58, 237, 0.08); /* complementary purple */
+  top: 30%;
+  left: 30%;
+  animation-delay: -10s;
+}
+
+.glass-pane {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(124, 58, 237, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 58, 237, 0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+  z-index: 0;
+}
+
+@keyframes float-mesh {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(5%, 10%) scale(1.1); }
+  100% { transform: translate(-5%, 5%) scale(0.9); }
 }
 
 .hero-content {
@@ -476,10 +501,19 @@ onMounted(async () => {
 
 .skeleton-card {
   height: 300px;
-  background: var(--color-surface);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-xl);
-  background: linear-gradient(90deg, var(--color-surface) 0%, var(--color-surface-alt) 50%, var(--color-surface) 100%);
-  background-size: 200% 100%;
+  backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
   animation: shimmer 1.5s infinite;
 }
 

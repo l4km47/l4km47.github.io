@@ -116,7 +116,7 @@ const statusClass = computed(() => {
   position: relative;
   height: 200px;
   overflow: hidden;
-  background: var(--color-surface-alt);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .card-thumb img {
@@ -237,7 +237,7 @@ const statusClass = computed(() => {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   padding: 2px var(--space-2);
-  background: var(--color-surface-alt);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   color: var(--color-text-faint);
@@ -282,7 +282,7 @@ const statusClass = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-surface-alt);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   color: var(--color-text-muted);

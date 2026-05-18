@@ -353,14 +353,16 @@ function sendEmail() {
 .form-group input,
 .form-group select,
 .form-group textarea {
-  background: var(--color-surface-alt);
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
   padding: var(--space-3) var(--space-4);
   font-family: var(--font-body);
   font-size: 0.95rem;
   color: var(--color-text);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
   resize: vertical;
 }
 
@@ -373,12 +375,13 @@ function sendEmail() {
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
+  background: rgba(255, 255, 255, 0.05);
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px var(--color-primary-glow);
 }
 
 .form-group select option {
-  background: var(--color-surface);
+  background: #111128;
 }
 
 @media (max-width: 768px) {
