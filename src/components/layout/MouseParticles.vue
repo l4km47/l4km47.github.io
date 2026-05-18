@@ -1,18 +1,12 @@
 <template>
   <div class="mouse-bg" aria-hidden="true">
     <div ref="glowEl" class="cursor-glow"></div>
-    <div 
-      v-for="p in particles" 
-      :key="p.id" 
-      class="particle"
-      :ref="el => setParticleRef(el, p.id)"
-      :style="{
-        width: p.size + 'px',
-        height: p.size + 'px',
-        background: p.color,
-        boxShadow: `0 0 ${p.size * 1.5}px ${p.color}`
-      }"
-    ></div>
+    <div v-for="p in particles" :key="p.id" class="particle" :ref="el => setParticleRef(el, p.id)" :style="{
+      width: p.size + 'px',
+      height: p.size + 'px',
+      background: p.color,
+      boxShadow: `0 0 ${p.size * 1.5}px ${p.color}`
+    }"></div>
   </div>
 </template>
 
@@ -78,7 +72,7 @@ function loop() {
 
   for (let i = 0; i < particles.length; i++) {
     const p = particles[i]
-    
+
     // Constant drift
     p.x += p.vx
     p.y += p.vy
@@ -95,10 +89,10 @@ function loop() {
 
     if (dist < maxDist && dist > 0) {
       const force = (maxDist - dist) / maxDist
-      
+
       p.x -= (dx / dist) * force * 2.5 * p.type
       p.y -= (dy / dist) * force * 2.5 * p.type
-      
+
       targetOpacity = p.baseOpacity + force * 0.7
     }
 

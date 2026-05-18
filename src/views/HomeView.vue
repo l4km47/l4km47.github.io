@@ -1,65 +1,64 @@
 <template>
   <div class="home">
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave">
       <div class="hero-bg">
         <div class="mesh-blob mesh-blob-1"></div>
         <div class="mesh-blob mesh-blob-2"></div>
         <div class="mesh-blob mesh-blob-3"></div>
         <div class="glass-pane"></div>
       </div>
+      <div class="hero-massive-name">LAKMAL SiRiWARDHANA<span>.</span></div>
+
       <div class="container hero-content">
-        <div class="hero-badge reveal">
-          <span class="status-dot"></span>
-          Available for new projects
+        <!-- Left Side: Intro & Actions -->
+        <div class="hero-left">
+          <div class="hero-badge reveal">
+            <span class="status-dot"></span>
+            Available for new projects
+          </div>
+
+          <h1 class="hero-title reveal reveal-delay-1">
+            Hi, I'm <span class="gradient-text">Lakmal</span><br />
+            <span class="typewriter" ref="typewriterEl"></span>
+          </h1>
+
+          <p class="hero-desc reveal reveal-delay-2">
+            Low-level enough to understand the system.<br />
+            High-level enough to engineer the solution.
+          </p>
+
+          <div class="hero-actions reveal reveal-delay-3">
+            <RouterLink to="/projects" class="btn btn-primary btn-lg">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+              View My Work
+            </RouterLink>
+            <RouterLink to="/contact" class="btn btn-outline btn-lg">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+              Contact Me
+            </RouterLink>
+          </div>
         </div>
 
-        <h1 class="hero-title reveal reveal-delay-1">
-          Hi, I'm <span class="gradient-text">Lakmal</span><br />
-          <span class="typewriter" ref="typewriterEl"></span>
-        </h1>
-
-        <p class="hero-desc reveal reveal-delay-2">
-          Low-level enough to understand the system.<br />
-          High-level enough to engineer the solution.
-        </p>
-
-        <div class="hero-actions reveal reveal-delay-3">
-          <RouterLink to="/projects" class="btn btn-primary btn-lg">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-              <polyline points="9 22 9 12 15 12 15 22" />
-            </svg>
-            View My Work
-          </RouterLink>
-          <RouterLink to="/contact" class="btn btn-outline btn-lg">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="4" width="20" height="16" rx="2" />
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-            </svg>
-            Contact Me
-          </RouterLink>
-        </div>
-
-        <div class="hero-stats reveal reveal-delay-4">
+        <!-- Right Side: Vertical Stats -->
+        <div class="hero-right reveal reveal-delay-4">
           <div class="stat">
-            <span class="stat-num">12+</span>
-            <span class="stat-label">Years Building</span>
+            <span class="stat-num">12</span>
+            <span class="stat-label">Years of Experience</span>
           </div>
-          <div class="stat-divider"></div>
           <div class="stat">
-            <span class="stat-num">110+</span>
-            <span class="stat-label">Projects Shipped</span>
+            <span class="stat-num">110</span>
+            <span class="stat-label">Projects Completed</span>
           </div>
-          <div class="stat-divider"></div>
           <div class="stat">
-            <span class="stat-num">900K+</span>
-            <span class="stat-label">App Downloads</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <span class="stat-num">231+</span>
-            <span class="stat-label">GitHub Repos</span>
+            <span class="stat-num">146</span>
+            <span class="stat-label">Happy Clients</span>
           </div>
         </div>
       </div>
@@ -168,6 +167,19 @@ import ProjectCard from '@/components/projects/ProjectCard.vue'
 const { loading, fetchData } = useData()
 const projects = ref([])
 const typewriterEl = ref(null)
+
+const mouseX = ref(0)
+const mouseY = ref(0)
+
+function handleMouseMove(e) {
+  mouseX.value = (e.clientX / window.innerWidth) * 2 - 1
+  mouseY.value = -(e.clientY / window.innerHeight) * 2 + 1
+}
+
+function handleMouseLeave() {
+  mouseX.value = 0
+  mouseY.value = 0
+}
 
 const featuredProjects = computed(() => projects.value.filter(p => p.featured))
 
@@ -302,7 +314,8 @@ onMounted(async () => {
   height: 80vw;
   max-width: 800px;
   max-height: 800px;
-  background: rgba(79, 237, 58, 0.12); /* primary */
+  background: rgba(79, 237, 58, 0.12);
+  /* primary */
   top: -20%;
   left: -10%;
   animation-delay: 0s;
@@ -313,7 +326,8 @@ onMounted(async () => {
   height: 60vw;
   max-width: 600px;
   max-height: 600px;
-  background: rgba(6, 212, 126, 0.12); /* accent */
+  background: rgba(6, 212, 126, 0.12);
+  /* accent */
   bottom: -10%;
   right: -5%;
   animation-delay: -5s;
@@ -324,7 +338,8 @@ onMounted(async () => {
   height: 50vw;
   max-width: 500px;
   max-height: 500px;
-  background: rgba(124, 58, 237, 0.08); /* complementary purple */
+  background: rgba(124, 58, 237, 0.08);
+  /* complementary purple */
   top: 30%;
   left: 30%;
   animation-delay: -10s;
@@ -335,23 +350,41 @@ onMounted(async () => {
   inset: 0;
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
-  background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
   z-index: 0;
 }
 
 @keyframes float-mesh {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(5%, 10%) scale(1.1); }
-  100% { transform: translate(-5%, 5%) scale(0.9); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(5%, 10%) scale(1.1);
+  }
+
+  100% {
+    transform: translate(-5%, 5%) scale(0.9);
+  }
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: -10vh;
+  /* Shift up to balance bottom text */
+}
+
+.hero-left {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 550px;
   gap: var(--space-6);
 }
 
@@ -379,7 +412,7 @@ onMounted(async () => {
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
   line-height: 1.1;
 }
 
@@ -387,7 +420,7 @@ onMounted(async () => {
   display: inline-block;
   color: var(--color-accent-light);
   font-family: var(--font-mono);
-  font-size: 0.7em;
+  font-size: 0.6em;
   font-weight: 400;
   border-right: 2px solid var(--color-accent);
   padding-right: 4px;
@@ -405,46 +438,71 @@ onMounted(async () => {
   display: flex;
   gap: var(--space-4);
   flex-wrap: wrap;
-  justify-content: center;
 }
 
-.hero-stats {
+/* Right Side Stats */
+.hero-right {
   display: flex;
-  align-items: center;
-  gap: var(--space-6);
-  margin-top: var(--space-4);
-  padding: var(--space-5) var(--space-8);
-  background: rgba(17, 17, 40, 0.6);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  backdrop-filter: blur(20px);
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: var(--space-10);
 }
 
 .stat {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .stat-num {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: clamp(3rem, 5vw, 4.5rem);
   font-weight: 700;
-  background: linear-gradient(135deg, var(--color-primary-light), var(--color-accent));
+  line-height: 1;
+  background: var(--color-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  margin-bottom: var(--space-2);
+}
+
+.stat-num::after {
+  content: '+';
+  font-size: 0.8em;
+  color: var(--color-accent);
+  -webkit-text-fill-color: var(--color-accent);
 }
 
 .stat-label {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
   color: var(--color-text-faint);
   white-space: nowrap;
 }
 
-.stat-divider {
-  width: 1px;
-  height: 40px;
-  background: var(--color-border);
+
+
+/* Massive Bottom Typography */
+.hero-massive-name {
+  position: absolute;
+  bottom: 4vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(3rem, 7vw, 12rem);
+  font-family: var(--font-display);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--color-text);
+  z-index: 1;
+  pointer-events: none;
+  white-space: nowrap;
+  letter-spacing: -0.05em;
+}
+
+.hero-massive-name span {
+  color: var(--color-accent);
 }
 
 /* Scroll indicator */
@@ -513,7 +571,7 @@ onMounted(async () => {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
   animation: shimmer 1.5s infinite;
 }
 
@@ -627,17 +685,43 @@ onMounted(async () => {
 }
 
 @media (max-width: 1024px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-12);
+  }
+
+  .hero-left {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-right {
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-6);
+  }
+
+  .stat {
+    align-items: center;
+  }
+
   .expertise-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .hero-stats {
-    gap: var(--space-4);
-    padding: var(--space-4);
-    flex-wrap: wrap;
-    justify-content: center;
+  .hero-core-graphic {
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+
+  .hero-massive-name {
+    font-size: 8vw;
+    bottom: 4vh;
   }
 
   .expertise-grid {
