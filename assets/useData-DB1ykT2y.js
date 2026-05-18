@@ -1,0 +1,1 @@
+import{m as l}from"./index-MvZNIYM1.js";const t={};function c(){const r=l(!1),n=l(null);async function u(e){if(t[e])return t[e];r.value=!0,n.value=null;try{const a=await fetch(e);if(!a.ok)throw new Error(`Failed to load ${e}`);const o=await a.json();return t[e]=o,o}catch(a){return n.value=a.message,null}finally{r.value=!1}}return{loading:r,error:n,fetchData:u}}export{c as u};
