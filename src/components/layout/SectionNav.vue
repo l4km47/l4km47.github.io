@@ -1,5 +1,5 @@
 <template>
-  <aside v-if="sections.length" class="card-glass section-nav" aria-label="Page sections">
+  <aside v-if="sections.length" class="section-nav" aria-label="Page sections">
     <ul>
       <li v-for="section in sections" :key="section.id">
         <button class="section-link" :class="{ active: activeSection === section.id }" @click="scrollTo(section.id)">
@@ -24,7 +24,7 @@ const visibilityMap = new Map()
 
 const sectionsByRoute = {
   '/': [
-    //{ id: 'home-hero', label: 'Home' },
+    { id: 'home-hero', label: 'Home' },
     { id: 'home-projects', label: 'Projects' },
     { id: 'home-expertise', label: 'Skills' },
     { id: 'home-cta', label: 'Contact' }
@@ -146,10 +146,6 @@ onBeforeUnmount(() => {
   display: flex;
   gap: var(--space-3);
   align-items: stretch;
-  padding: var(--space-4);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
-  border-radius: var(--radius-sm);
 }
 
 .section-nav-track {

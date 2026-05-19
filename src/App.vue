@@ -43,4 +43,10 @@ main {
     padding-left: var(--nav-side-width);
   }
 }
+
+@media (min-width: 1025px) {
+  main {
+    padding-right: var(--nav-side-width);
+  }
+}
 </style>

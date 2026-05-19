@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <!-- HERO -->
-    <section id="home-hero" class="hero" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave" :style="{ '--scroll-y': scrollY }">
+    <section id="home-hero" class="hero" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave"
+      :style="{ '--scroll-y': scrollY }">
       <div class="hero-bg">
         <div class="mesh-blob mesh-blob-1"></div>
         <div class="mesh-blob mesh-blob-2"></div>
@@ -59,6 +60,10 @@
           <div class="stat">
             <span class="stat-num">146</span>
             <span class="stat-label">Happy Clients</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">231</span>
+            <span class="stat-label">GitHub Repositories</span>
           </div>
         </div>
       </div>
@@ -409,7 +414,7 @@ onUnmounted(() => {
   gap: var(--space-2);
   background: rgba(16, 185, 129, 0.1);
   border: 1px solid rgba(16, 185, 129, 0.3);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-md);
   padding: var(--space-2) var(--space-4);
   font-size: 0.8rem;
   font-weight: 500;
@@ -448,6 +453,8 @@ onUnmounted(() => {
   color: var(--color-text-muted);
   line-height: 1.8;
 }
+
+
 
 .hero-actions {
   display: flex;
@@ -711,6 +718,21 @@ onUnmounted(() => {
     gap: var(--space-12);
   }
 
+  .hero-desc {
+    font-size: 1rem;
+    max-width: none;
+  }
+
+  .hero-actions.reveal {
+    transform: none;
+    opacity: 1;
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-4);
+    justify-content: center;
+    font-size: 1rem;
+  }
+
   .hero-left {
     align-items: center;
     text-align: center;
@@ -737,6 +759,10 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .hero-core-graphic {
     transform: translate(-50%, -50%) scale(0.6);
+  }
+
+  .hero {
+    padding: var(--space-1) 0;
   }
 
   .hero-massive-name {
