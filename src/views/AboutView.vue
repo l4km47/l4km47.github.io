@@ -1,7 +1,7 @@
 <template>
   <div class="about-page">
     <!-- Hero -->
-    <section class="about-hero section">
+    <section id="hero" class="about-hero section">
       <div class="hero-bg-subtle"></div>
       <div class="container">
         <div class="about-hero-grid">
@@ -85,7 +85,7 @@
     </section>
 
     <!-- Timeline -->
-    <section class="section timeline-section">
+    <section id="timeline" class="section timeline-section">
       <div class="container">
         <div class="section-header">
           <span class="section-label">Journey</span>
@@ -114,7 +114,7 @@
     </section>
 
     <!-- Philosophy -->
-    <section class="section-sm philosophy-section">
+    <section id="philosophy" class="section-sm philosophy-section">
       <div class="container">
         <div class="philosophy-card card-glass reveal">
           <blockquote>
