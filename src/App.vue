@@ -34,4 +34,11 @@ main {
   flex: 1;
   padding-top: var(--nav-height);
 }
+
+@media (min-width: 769px) {
+  main {
+    padding-top: 0;
+    padding-left: var(--nav-side-width);
+  }
+}
 </style>
