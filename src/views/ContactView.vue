@@ -5,10 +5,10 @@
       <div class="hero-bg-subtle"></div>
       <div class="container text-center">
         <span class="section-label reveal">Let's Talk</span>
-        <h1 class="reveal reveal-delay-1">Get In <span class="gradient-text">Touch</span></h1>
+        <h1 class="reveal reveal-delay-1">Talk to <span class="gradient-text">Me</span></h1>
         <p class="page-desc reveal reveal-delay-2">
           Open to freelance projects, full-time roles, and interesting collaborations.<br />
-          Drop me a message — I usually respond within 24 hours.
+          Drop me a message — I "usually" respond within 24 hours.
         </p>
       </div>
     </section>
@@ -83,7 +83,7 @@
                 <span class="avail-title">Currently Available</span>
               </div>
               <p class="avail-desc">Open to freelance projects, consulting engagements, and interesting full-time
-                opportunities. Based in Sri Lanka 🇱🇰 — available remotely worldwide.</p>
+                opportunities. Based in Sri Lanka — available remotely worldwide.</p>
               <div class="avail-tags">
                 <span class="badge badge-success">Freelance</span>
                 <span class="badge badge-accent">Full-time</span>

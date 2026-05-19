@@ -4,8 +4,9 @@
       <div class="hero-bg-subtle"></div>
       <div class="container text-center">
         <span class="section-label reveal">Expertise</span>
-        <h1 class="reveal reveal-delay-1">My <span class="gradient-text">Skills</span></h1>
-        <p class="page-desc reveal reveal-delay-2">A snapshot of my technical toolkit — languages, frameworks, and domains I work in.</p>
+        <h1 class="reveal reveal-delay-1">Digital <span class="gradient-text">Literacy</span></h1>
+        <p class="page-desc reveal reveal-delay-2">A snapshot of my technical toolkit — languages, frameworks, and
+          domains I work in.</p>
       </div>
     </section>
 
@@ -13,7 +14,8 @@
       <div class="container">
         <!-- Skill Groups -->
         <div id="skills-groups" class="skill-groups">
-          <div v-for="(group, i) in skillGroups" :key="group.key" class="skill-group reveal" :class="`reveal-delay-${i + 1}`">
+          <div v-for="(group, i) in skillGroups" :key="group.key" class="skill-group reveal"
+            :class="`reveal-delay-${i + 1}`">
             <div class="group-header">
               <div class="group-icon" v-html="group.icon"></div>
               <h2 class="group-title">{{ group.label }}</h2>
@@ -25,11 +27,8 @@
                   <span class="skill-level">{{ skill.level }}%</span>
                 </div>
                 <div class="skill-track">
-                  <div
-                    class="skill-fill"
-                    :style="{ '--skill-level': skill.level + '%', '--skill-color': skill.color }"
-                    :class="{ animated: barsVisible }"
-                  ></div>
+                  <div class="skill-fill" :style="{ '--skill-level': skill.level + '%', '--skill-color': skill.color }"
+                    :class="{ animated: barsVisible }"></div>
                 </div>
               </div>
             </div>
@@ -39,15 +38,11 @@
         <!-- Tags cloud -->
         <div class="section-header" style="margin-top: var(--space-16)">
           <span class="section-label">All Technologies</span>
-          <h2 class="section-title reveal">Full <span class="gradient-text">Tech Stack</span></h2>
+          <h2 class="section-title reveal">The "<span class="gradient-text">Full-Stack</span>" Illusion</h2>
         </div>
         <div id="skills-tags" class="tags-cloud reveal">
-          <span
-            v-for="(tag, i) in skills.tags"
-            :key="tag"
-            class="tag-chip"
-            :style="{ animationDelay: `${i * 0.05}s` }"
-          >{{ tag }}</span>
+          <span v-for="(tag, i) in skills.tags" :key="tag" class="tag-chip"
+            :style="{ animationDelay: `${i * 0.05}s` }">{{ tag }}</span>
         </div>
       </div>
     </section>
@@ -101,14 +96,26 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.skills-page { min-height: 100vh; }
-.skills-hero { position: relative; }
+.skills-page {
+  min-height: 100vh;
+}
+
+.skills-hero {
+  position: relative;
+}
+
 .hero-bg-subtle {
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 100%, rgba(6,182,212,0.07) 0%, transparent 60%);
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(6, 182, 212, 0.07) 0%, transparent 60%);
   pointer-events: none;
 }
-.page-desc { font-size: 1.05rem; max-width: 600px; margin: var(--space-4) auto 0; }
+
+.page-desc {
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: var(--space-4) auto 0;
+}
 
 .skill-groups {
   display: grid;
@@ -130,13 +137,35 @@ onMounted(async () => {
   margin-bottom: var(--space-6);
   color: var(--color-primary-light);
 }
-.group-title { font-size: 1.1rem; }
 
-.skill-bars { display: flex; flex-direction: column; gap: var(--space-4); }
-.skill-bar-wrap { }
-.skill-info { display: flex; justify-content: space-between; margin-bottom: var(--space-2); }
-.skill-name { font-size: 0.875rem; font-weight: 500; }
-.skill-level { font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-text-faint); }
+.group-title {
+  font-size: 1.1rem;
+}
+
+.skill-bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.skill-bar-wrap {}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.skill-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.skill-level {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-faint);
+}
 
 .skill-track {
   height: 6px;
@@ -144,6 +173,7 @@ onMounted(async () => {
   border-radius: var(--radius-full);
   overflow: hidden;
 }
+
 .skill-fill {
   height: 100%;
   width: 0;
@@ -151,7 +181,10 @@ onMounted(async () => {
   background: linear-gradient(90deg, var(--skill-color, var(--color-primary)), var(--color-primary-light));
   transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.skill-fill.animated { width: var(--skill-level); }
+
+.skill-fill.animated {
+  width: var(--skill-level);
+}
 
 /* Tags */
 .tags-cloud {
@@ -160,6 +193,7 @@ onMounted(async () => {
   gap: var(--space-3);
   justify-content: center;
 }
+
 .tag-chip {
   padding: var(--space-2) var(--space-4);
   background: var(--color-surface);
@@ -171,16 +205,24 @@ onMounted(async () => {
   transition: all var(--transition-base);
   cursor: default;
 }
+
 .tag-chip:hover {
   border-color: var(--color-accent);
   color: var(--color-accent-light);
-  background: rgba(6,182,212,0.05);
+  background: rgba(6, 182, 212, 0.05);
   transform: translateY(-2px);
 }
 
-.loading-state { min-height: 60vh; display: flex; align-items: center; justify-content: center; }
+.loading-state {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .spinner {
-  width: 40px; height: 40px;
+  width: 40px;
+  height: 40px;
   border: 3px solid var(--color-border);
   border-top-color: var(--color-primary);
   border-radius: 50%;
@@ -188,6 +230,8 @@ onMounted(async () => {
 }
 
 @media (max-width: 768px) {
-  .skill-groups { grid-template-columns: 1fr; }
+  .skill-groups {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

@@ -1,99 +1,99 @@
 [
   {
     "year": "2014",
-    "title": "Started Programming & Hardware",
-    "description": "Began with Visual Basic, C# and C/C++ — learning fundamentals of programming, memory management, and how software interacts with hardware. Simultaneously started working with PC hardware: building, diagnosing, and repairing computers.",
+    "title": "Began My Descent Into Code",
+    "description": "Started with Visual Basic, C#, and C/C++. Learned how memory management works, mostly by accidentally leaking it, and figured out how to make software yell directly at hardware.",
     "type": "milestone",
     "icon": "code"
   },
   {
     "year": "2015",
-    "title": "Chip-Level Laptop Repair",
-    "description": "Developed expertise in chip-level laptop motherboard repair — BGA reballing, soldering, schematic reading, and power rail diagnostics. Serviced laptops at component level beyond standard board replacements.",
+    "title": "Playing with Fire (and Motherboards)",
+    "description": "Developed a knack for chip-level laptop repairs. Spent my time reballing BGAs, sniffing out short circuits on power rails, and breathing in toxic soldering fumes instead of replacing boards like a normal person.",
     "type": "milestone",
     "icon": "cpu"
   },
   {
     "year": "2016",
-    "title": "First Web Projects",
-    "description": "Expanded into web development — HTML, CSS, JavaScript. Built first personal projects and started understanding client-server architecture and networking fundamentals.",
+    "title": "Discovered the World Wide Web",
+    "description": "Accidentally wandered into HTML, CSS, and JavaScript. Built my first personal projects and realized that networking fundamentals are just computers shouting at each other across a room.",
     "type": "milestone",
     "icon": "globe"
   },
   {
     "year": "2018",
-    "title": "Systems & Low-Level Programming",
-    "description": "Deep dive into Windows internals, reverse engineering, and low-level systems programming. Started experimenting with kernel-mode code and driver development.",
+    "title": "Breaking Windows Legally",
+    "description": "Deep dived into Windows internals and reverse engineering. Began writing kernel-mode drivers, giving my computer a brand new, highly efficient way to instantly trigger a Blue Screen of Death.",
     "type": "milestone",
     "icon": "terminal"
   },
   {
     "year": "2019",
-    "title": "Joined Acom Information Technology",
-    "description": "Joined Acom Information Technology as Full-Stack Developer & System Administrator. Responsible for web application development, server management, network infrastructure, and IT systems administration.",
+    "title": "Infiltrated Acom IT",
+    "description": "Convinced Acom Information Technology to hire me as a Full-Stack Developer & SysAdmin. Took over their web apps, server stacks, and network infrastructure before they could change their minds.",
     "type": "work",
     "icon": "briefcase"
   },
   {
     "year": "2019-2022",
-    "title": "Full-Stack Developer & SysAdmin @ Acom IT",
-    "description": "3 years at Acom Information Technology — built and maintained web platforms, managed servers and network infrastructure, administered IT systems, and provided technical support. Gained deep real-world experience across the full stack and systems administration.",
+    "title": "The SysAdmin / Dev Survival Era",
+    "description": "Spent 3 long years at Acom IT managing servers, treating network infrastructure like a fragile house of cards, and keeping web platforms alive. Gained massive real-world experience because everything was constantly trying to break.",
     "type": "work",
     "icon": "briefcase"
   },
   {
     "year": "2022",
-    "title": "Left Acom IT — Joined Cyber Yakku",
-    "description": "Left Acom Information Technology after 3 years to take on a senior role at Cyber Yakku PVT LTD. Continued expanding into HWID authentication systems, kernel development, and mobile apps alongside professional responsibilities.",
+    "title": "The Escape to Cyber Yakku",
+    "description": "Left Acom IT to take a senior role at Cyber Yakku PVT LTD. Immediately began complicating my life further by diving deeper into HWID authentication systems, kernel exploitation, and mobile apps.",
     "type": "milestone",
     "icon": "rocket"
   },
   {
     "year": "2022 — Present",
-    "title": "Senior Software Developer & Project Manager @ Cyber Yakku PVT LTD",
-    "description": "Leading software development and project delivery at Cyber Yakku PVT LTD. Responsibilities span full-stack web and mobile development, systems engineering, technical architecture, and managing project timelines and cross-functional teams. Driving product strategy and overseeing delivery of production-grade software across multiple domains.",
+    "title": "Senior Overthinker & Project Manager @ Cyber Yakku",
+    "description": "Currently leading teams and driving software strategy. This means I'm responsible for mobile architecture, systems engineering, and managing project timelines that clients desperately try to shorten. I mostly manage cross-functional chaos.",
     "type": "work",
     "icon": "briefcase"
   },
   {
     "year": "2022",
-    "title": "Mobile & Cross-Platform Development",
-    "description": "Started Flutter development for iOS and Android. Built cross-platform apps with Firebase backends and real-time geolocation features.",
+    "title": "Fluttering Around Mobile Dev",
+    "description": "Started learning Flutter for iOS and Android. Combined it with Firebase backends and real-time geolocation tracking so I can pinpoint exactly where my code is currently crashing a user's phone.",
     "type": "milestone",
     "icon": "smartphone"
   },
   {
     "year": "2023",
-    "title": "Dansal App — 800K+ Downloads",
-    "description": "Launched the Dansal App for Sri Lanka's Vesak festival season. Reached 800,000+ downloads and was featured on Sha FM national radio.",
+    "title": "Dansal App — 800K+ Unsuspecting Users",
+    "description": "Launched the Dansal App for Vesak festival tracking. Shockingly reached 800,000+ downloads and was featured on national radio (Sha FM), confirming that Sri Lanka has a massive appetite for free food and my apps.",
     "type": "project",
     "icon": "star"
   },
   {
     "year": "2025",
-    "title": "ExcellentComputers.lk",
-    "description": "Delivered a full production e-commerce platform for a computer hardware retailer in Sri Lanka, live at excellentcomputers.lk.",
+    "title": "ExcellentComputers.lk — Active E-Commerce",
+    "description": "Built and deployed a full production e-commerce platform for a computer hardware retailer. It is live, it accepts real currency, and it successfully trades computer parts for money without breaking.",
     "type": "project",
     "icon": "shopping-cart"
   },
   {
     "year": "2026",
-    "title": "The Alpha Platform — Launched",
-    "description": "Built and deployed a full SaaS platform with hardware-ID licensing at thealpha.vip. Serving real users with cryptographic license protection.",
+    "title": "The Alpha Platform — Officially Haunted",
+    "description": "Launched a full SaaS platform at thealpha.vip. Implemented cryptographic license protection and hardware-ID locking to keep out freeloading users who try to outsmart my licensing algorithms.",
     "type": "project",
     "icon": "shield"
   },
   {
     "year": "2026",
-    "title": "Open Source: Weedr & APK-Wooper",
-    "description": "Released two open-source tools — Weedr (secure qBittorrent dashboard) and APK-Wooper (self-hosted APK analysis workspace) — on GitHub.",
+    "title": "Exposing My Code via Open Source",
+    "description": "Bravely pushed two tools to GitHub: Weedr (a secure qBittorrent wrapper) and APK-Wooper (a self-hosted workspace to rip apart Android files). Feel free to judge the source code.",
     "type": "milestone",
     "icon": "git-branch"
   },
   {
     "year": "2026",
-    "title": "Security Research & AI/ML",
-    "description": "Expanding into hypervisor research, detection/anti-detection systems, driver communication architectures, and AI-assisted automation.",
+    "title": "Paranoia, Hypervisors, & AI Research",
+    "description": "Moving further into the dark arts of hypervisor research, anti-detection engines, and custom driver communication. Also sprinkling in some AI automation to see if a machine can write bugs faster than I can.",
     "type": "milestone",
     "icon": "brain"
   }

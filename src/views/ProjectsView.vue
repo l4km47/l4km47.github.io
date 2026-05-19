@@ -4,7 +4,7 @@
       <div class="hero-bg-subtle"></div>
       <div class="container text-center">
         <span class="section-label reveal">Portfolio</span>
-        <h1 class="reveal reveal-delay-1">My <span class="gradient-text">Projects</span></h1>
+        <h1 class="reveal reveal-delay-1">Things I Actually Finished <span class="gradient-text">Somehow</span></h1>
         <p class="page-desc reveal reveal-delay-2">Production apps, open-source tools, and engineering experiments.</p>
       </div>
     </section>
@@ -13,13 +13,8 @@
       <div class="container">
         <div class="filter-wrap reveal">
           <div class="filter-tabs">
-            <button
-              v-for="cat in categories"
-              :key="cat.value"
-              class="filter-tab"
-              :class="{ active: activeFilter === cat.value }"
-              @click="activeFilter = cat.value"
-            >
+            <button v-for="cat in categories" :key="cat.value" class="filter-tab"
+              :class="{ active: activeFilter === cat.value }" @click="activeFilter = cat.value">
               {{ cat.label }}
               <span class="filter-count">{{ cat.count }}</span>
             </button>
@@ -31,13 +26,8 @@
         </div>
 
         <div v-else class="grid-auto projects-grid">
-          <ProjectCard
-            v-for="(project, i) in filteredProjects"
-            :key="project.slug"
-            :project="project"
-            class="reveal"
-            :class="`reveal-delay-${(i % 4) + 1}`"
-          />
+          <ProjectCard v-for="(project, i) in filteredProjects" :key="project.slug" :project="project" class="reveal"
+            :class="`reveal-delay-${(i % 4) + 1}`" />
         </div>
       </div>
     </section>
@@ -47,7 +37,8 @@
         <div class="card text-center">
           <h2>Need a custom build?</h2>
           <p>Let's discuss your product and ship something production-ready.</p>
-          <RouterLink to="/contact" class="btn btn-primary" style="margin-top: var(--space-4)">Start a Project</RouterLink>
+          <RouterLink to="/contact" class="btn btn-primary" style="margin-top: var(--space-4)">Start a Project
+          </RouterLink>
         </div>
       </div>
     </section>
@@ -92,15 +83,31 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.projects-page { min-height: 100vh; }
-.projects-hero { position: relative; }
+.projects-page {
+  min-height: 100vh;
+}
+
+.projects-hero {
+  position: relative;
+}
+
 .hero-bg-subtle {
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 80%, rgba(124,58,237,0.08) 0%, transparent 60%);
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 80%, rgba(124, 58, 237, 0.08) 0%, transparent 60%);
   pointer-events: none;
 }
-.page-desc { font-size: 1.05rem; max-width: 600px; margin: var(--space-4) auto 0; }
-.filter-wrap { margin-bottom: var(--space-10); }
+
+.page-desc {
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: var(--space-4) auto 0;
+}
+
+.filter-wrap {
+  margin-bottom: var(--space-10);
+}
+
 .filter-tabs {
   display: inline-flex;
   gap: var(--space-2);
@@ -112,6 +119,7 @@ onMounted(async () => {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-xl);
 }
+
 .filter-tab {
   display: flex;
   align-items: center;
@@ -125,22 +133,40 @@ onMounted(async () => {
   transition: all var(--transition-fast);
   background: transparent;
 }
-.filter-tab:hover { color: var(--color-text); background: var(--color-surface-alt); }
-.filter-tab.active { background: var(--color-primary); color: white; box-shadow: 0 4px 15px var(--color-primary-glow); }
+
+.filter-tab:hover {
+  color: var(--color-text);
+  background: var(--color-surface-alt);
+}
+
+.filter-tab.active {
+  background: var(--color-primary);
+  color: white;
+  box-shadow: 0 4px 15px var(--color-primary-glow);
+}
+
 .filter-count {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   padding: 1px 6px;
   border-radius: var(--radius-full);
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
 }
-.projects-grid { min-height: 300px; }
-.projects-cta { padding-top: 0; }
+
+.projects-grid {
+  min-height: 300px;
+}
+
+.projects-cta {
+  padding-top: 0;
+}
+
 .loading-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: var(--space-6);
 }
+
 .skeleton-card {
   height: 380px;
   background: rgba(255, 255, 255, 0.02);
@@ -150,11 +176,12 @@ onMounted(async () => {
   position: relative;
   overflow: hidden;
 }
+
 .skeleton-card::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
   animation: shimmer 1.5s infinite;
 }
 </style>

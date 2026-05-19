@@ -81,8 +81,9 @@
       <div class="container">
         <div class="section-header">
           <span class="section-label">Selected Work</span>
-          <h2 class="section-title reveal">Featured <span class="gradient-text">Projects</span></h2>
-          <p class="section-desc reveal">Production-grade applications, open-source tools, and engineering experiments.
+          <h2 class="section-title reveal">Proof of <span class="gradient-text">Concepts</span></h2>
+          <p class="section-desc reveal">A curated list of systems that exchange data for stress, tools that tear apart
+            Android files, and code that sits uncomfortably close to hardware.
           </p>
         </div>
 
@@ -202,51 +203,51 @@ const techTags = [
   'Reverse Engineering', 'PE Analysis', 'Firmware Analysis',
   'JADX', 'Kernel Development', 'ESP32'
 ]
-
 const expertise = [
   {
-    title: 'Full-Stack Web',
+    title: 'Full-Stack Web (Pixel Pushing)',
     color: '#7c3aed',
-    desc: 'Production-grade web applications from database schema to polished UI. Vue 3, React, Node.js, and Python backends.',
+    desc: 'Building modern web applications from database schemas up to the polished UI, mostly so I can complain about aligning elements in CSS. Handling Vue 3, React, Node.js, and Python backends that work flawlessly until a user opens them.',
     tags: ['Vue 3', 'Node.js', 'Flask', 'PostgreSQL'],
     icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`
   },
   {
-    title: 'Systems & Kernel',
+    title: 'Systems & Kernel Torment',
     color: '#06b6d4',
-    desc: 'Windows kernel driver development, hardware interaction, HWID authentication systems, and anti-tamper engineering.',
+    desc: 'Windows kernel driver development, low-level hardware interaction, and HWID authentication systems. I specialize in writing highly privileged code that gives the operating system excellent, creative new reasons to display a blue screen.',
     tags: ['C++', 'C#', 'WDK', 'HWID'],
     icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M15 20v2M2 15h2M20 15h2M9 2v2M9 20v2M2 9h2M20 9h2"/></svg>`
   },
   {
-    title: 'Mobile & Cross-Platform',
+    title: 'Mobile App Construction',
     color: '#10b981',
-    desc: 'Cross-platform apps with Flutter and native Android development (Java/Kotlin). SQLite/Room DB, Retrofit API integration, Firebase backend, Google Maps, push notifications, and background services.',
+    desc: 'Crafting cross-platform apps with Flutter and native Android frameworks. Successfully wiring up database architectures, real-time background services, and maps to track precisely where my code is currently eating up a phone\'s battery life.',
     tags: ['Flutter', 'Android (Native)', 'Room DB', 'Retrofit', 'Firebase'],
     icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>`
   },
   {
-    title: 'Security & Reverse Engineering',
+    title: 'Reverse Engineering (The Dark Arts)',
     color: '#ef4444',
-    desc: 'Full-spectrum reverse engineering across platforms — Windows PE/DLL analysis with IDA Pro & WinDbg, embedded/firmware targets, Android APK decompilation, and custom static analysis tooling. From kernel-mode debugging to mobile bytecode.',
+    desc: 'Full-spectrum reverse engineering across platforms. Ripping apart Windows binaries with IDA Pro and WinDbg, decompiling Android bytecode, and tearing through firmware to understand how software works when the source code is hiding from me.',
     tags: ['IDA Pro', 'WinDbg', 'x64dbg', 'JADX', 'Firmware'],
     icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`
   },
   {
-    title: 'DevOps & Tooling',
+    title: 'DevOps & Fragile Tooling',
     color: '#f59e0b',
-    desc: 'CI/CD pipelines, Docker containerization, GitHub Actions automation, and building developer tools that improve workflows.',
+    desc: 'Setting up automated pipelines, containerizing environments with Docker, and building custom developer scripts. I spend hours optimizing workflows just to save five minutes of manual deployment labor, like a true professional.',
     tags: ['Docker', 'GitHub Actions', 'Linux', 'Bash'],
     icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`
   },
   {
-    title: 'AI/ML Experiments',
+    title: 'AI/ML (Machine-Made Bugs)',
     color: '#9d6bf5',
-    desc: 'Model training experiments, AI-assisted automation, and exploring the intersection of AI with systems programming.',
+    desc: 'Running training experiments and investigating the intersection of artificial intelligence with systems-level programming. I am actively teaching algorithms how to generate unmaintainable legacy code much faster than humanly possible.',
     tags: ['Python', 'ML', 'AI', 'Automation'],
     icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 8v4l3 3"/></svg>`
   }
 ]
+
 
 // Typewriter effect
 const phrases = [

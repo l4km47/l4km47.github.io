@@ -24,24 +24,24 @@ const visibilityMap = new Map()
 
 const sectionsByRoute = {
   '/': [
-    { id: 'home-hero', label: 'Home' },
-    { id: 'home-projects', label: 'Projects' },
-    { id: 'home-expertise', label: 'Skills' },
-    { id: 'home-cta', label: 'Contact' }
+    { id: 'home-hero', label: 'Its just Home' },
+    { id: 'home-projects', label: 'What i Done' },
+    { id: 'home-expertise', label: 'What i Do' },
+    { id: 'home-cta', label: 'Let\'s Build' }
   ],
   '/projects': [
     //{ id: 'projects-hero', label: 'Projects' },
-    { id: 'projects-grid', label: 'All Projects' },
-    { id: 'projects-cta', label: 'Contact' }
+    { id: 'projects-grid', label: 'Listed Works' },
+    { id: 'projects-cta', label: 'Build ?' }
   ],
   '/skills': [
-    { id: 'skills-hero', label: 'Skills' },
-    { id: 'skills-tags', label: 'Tech Stack' }
+    { id: 'skills-hero', label: 'Mastered' },
+    { id: 'skills-tags', label: 'I Know..' }
   ],
   '/about': [
-    { id: 'hero', label: 'Me' },
-    { id: 'timeline', label: 'Timeline' },
-    { id: 'philosophy', label: 'Philosophy' }
+    { id: 'hero', label: 'Here\'s we go' },
+    { id: 'timeline', label: 'Life line' },
+    { id: 'philosophy', label: 'As I Say' }
   ]
 }
 

@@ -14,8 +14,8 @@
               <span class="logo-bracket">/&gt;</span>
             </div>
             <p class="brand-tagline">
-              Low-level enough to understand the system.
-              High-level enough to engineer the solution.
+              Low-level enough to trigger a blue screen. <br />
+              High-level enough to write a beautiful error page for it.
             </p>
             <div class="social-row">
               <a href="https://github.com/l4km47" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub">
@@ -108,7 +108,7 @@
                   <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                Sri Lanka 🇱🇰
+                Sri Lanka
               </span>
             </div>
           </div>
@@ -190,7 +190,8 @@
 }
 
 .brand-tagline {
-  font-size: 0.83rem;
+  font-size: 0.63rem;
+  font-style: italic;
   line-height: 1.7;
   color: var(--color-text-faint);
   max-width: 230px;

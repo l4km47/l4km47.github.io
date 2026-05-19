@@ -22,7 +22,7 @@
                   <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                Sri Lanka 🇱🇰
+                Sri Lanka
               </div>
               <div class="quick-item">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -43,43 +43,51 @@
 
           <!-- Bio -->
           <div class="bio-side">
-            <span class="section-label reveal">About Me</span>
+            <!-- Sarcastic section label poking fun at bio skippers -->
+            <span class="section-label reveal">The Origin Story (Skip This)</span>
             <h1 class="reveal reveal-delay-1">
               Hey, I'm <span class="gradient-text">Lakmal</span>
             </h1>
             <div class="bio-text reveal reveal-delay-2">
               <p>
-                I'm a passionate <strong>full-stack developer and systems engineer</strong> based in Sri Lanka.
-                I specialize in building things that sit close to the operating system, interact directly with hardware,
-                or solve difficult engineering problems efficiently.
+                I'm a full-stack developer and systems engineer based in Sri Lanka, which mostly means
+                <strong>I write code that can crash your operating system and your browser simultaneously</strong>.
+                I specialize in building things that sit dangerously close to hardware, mostly because I enjoy the
+                thrill of causing blue screens of death.
               </p>
               <p>
-                My work spans from <strong>Windows kernel drivers and HWID authentication systems</strong> to
+                My work spans from <strong>Windows kernel drivers and HWID bypasses</strong> to
                 <strong>production SaaS platforms and mobile apps</strong>. I've shipped apps with 800K+ downloads,
-                built live e-commerce stores, and engineered cryptographic licensing systems — all while staying
-                deeply rooted in the fundamentals of how software actually works.
+                proving that nearly a million people are surprisingly trusting of my code, and engineered
+                cryptographic licensing systems that work perfectly—right up until someone finds a typo.
               </p>
               <p>
-                Most of my serious work lives in private repositories — security tooling, performance systems,
-                hardware-integrated software, and research projects. The public repos are just the tip of the iceberg.
+                If you look at my GitHub, it looks empty. That’s because <strong>my most chaotic work lives in
+                  private repositories where the authorities can't see it</strong>. The public repos are just
+                a polite front to convince recruiters I am a stable member of society.
               </p>
             </div>
 
+            <!-- Modified the code block function names to match the sarcasm -->
             <div class="bio-code reveal reveal-delay-3">
               <pre><code>while(alive) {
-  build();
-  break_();
-  reverse();
-  learn();
-  optimize();
+  code();
+  blame_compiler();
+  ask_chatgpt();
+  //drink_coffee();
+  new deploy().force().catch(()=> {});
+  //sleep();
+  //TODO : keepalive
 }</code></pre>
             </div>
 
+            <!-- Updated the button texts to keep the vibe going to the next pages -->
             <div class="bio-actions reveal reveal-delay-4">
-              <RouterLink to="/projects" class="btn btn-primary">View Projects</RouterLink>
-              <RouterLink to="/contact" class="btn btn-outline">Get In Touch</RouterLink>
+              <RouterLink to="/projects" class="btn btn-primary">View the Damage</RouterLink>
+              <RouterLink to="/contact" class="btn btn-outline">Complain Here</RouterLink>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -89,7 +97,7 @@
       <div class="container">
         <div class="section-header">
           <span class="section-label">Journey</span>
-          <h2 class="section-title reveal">My <span class="gradient-text">Timeline</span></h2>
+          <h2 class="section-title reveal">Historical <span class="gradient-text">Technical</span> Debt </h2>
         </div>
 
         <div v-if="timelineLoading" class="loading-state">Loading timeline...</div>
