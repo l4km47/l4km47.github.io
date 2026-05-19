@@ -16,7 +16,7 @@
         <div class="hero-left">
           <div class="hero-badge reveal">
             <span class="status-dot"></span>
-            Available for new projects
+            Currently Exchangeable for Currency
           </div>
 
           <h1 class="hero-title reveal reveal-delay-1">
@@ -25,8 +25,8 @@
           </h1>
 
           <p class="hero-desc reveal reveal-delay-2">
-            Low-level enough to understand the system.<br />
-            High-level enough to engineer the solution.
+            Low-level enough to trigger a blue screen. <br />
+            High-level enough to write a beautiful error page for it.
           </p>
 
           <div class="hero-actions reveal reveal-delay-3">
@@ -35,14 +35,14 @@
                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
                 <polyline points="9 22 9 12 15 12 15 22" />
               </svg>
-              View My Work
+              Explore the Legacy
             </RouterLink>
             <RouterLink to="/contact" class="btn btn-outline btn-lg">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="2" y="4" width="20" height="16" rx="2" />
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
               </svg>
-              Contact Me
+              Send Binary
             </RouterLink>
           </div>
         </div>
@@ -251,12 +251,15 @@ const expertise = [
 
 // Typewriter effect
 const phrases = [
-  'Full-Stack Developer',
-  'Systems Engineer',
-  'Security Researcher',
-  'Open Source Builder',
-  'Kernel Developer'
+  'Full-Stack Bug Creator',
+  'Operating System Terrorist',
+  'Professional Rule Breaker',
+  'Technical Debt Exporter',
+  'Blue Screen Specialist',
+  'Bug-to-Feature Converter'
 ]
+
+
 
 let phraseIdx = 0
 let charIdx = 0
@@ -441,7 +444,7 @@ onUnmounted(() => {
   display: inline-block;
   color: var(--color-accent-light);
   font-family: var(--font-mono);
-  font-size: 0.6em;
+  font-size: 0.4em;
   font-weight: 400;
   border-right: 2px solid var(--color-accent);
   padding-right: 4px;

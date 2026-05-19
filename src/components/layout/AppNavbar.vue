@@ -73,15 +73,11 @@ const menuOpen = ref(false)
 const navLinks = [
   { to: '/', label: 'Home' },
   {
-    to: '/about', label: 'About', sections: [
-      { to: "#hero", label: "Hero" },
-      { to: "#timeline", label: "Timeline" },
-      { to: "#philosophy", label: "Philosophy" },
-    ]
+    to: '/about', label: 'Origin',
   },
-  { to: '/projects', label: 'Projects' },
-  { to: '/skills', label: 'Skills' },
-  { to: '/contact', label: 'Contact' }
+  { to: '/projects', label: 'Legacy' },
+  { to: '/skills', label: 'Toolbox' },
+  { to: '/contact', label: 'File a Ticket' }
 ]
 
 const isActive = (path) => {
