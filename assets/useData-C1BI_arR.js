@@ -1,0 +1,1 @@
+import{E as e}from"./index-B8FGMHW1.js";var t={};function n(){let n=e(!1),r=e(null);async function i(e){if(t[e])return t[e];n.value=!0,r.value=null;try{let n=await fetch(e);if(!n.ok)throw Error(`Failed to load ${e}`);let r=await n.json();return t[e]=r,r}catch(e){return r.value=e.message,null}finally{n.value=!1}}return{loading:n,error:r,fetchData:i}}export{n as t};
