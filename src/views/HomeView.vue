@@ -770,6 +770,8 @@ onUnmounted(() => {
   .scroll-indicator {
     bottom: calc(2vh + clamp(2.3rem, 9vw, 4.5rem) + var(--space-2));
   }
+
+
 }
 
 @media (max-width: 768px) {
@@ -777,13 +779,24 @@ onUnmounted(() => {
     transform: translate(-50%, -50%) scale(0.6);
   }
 
+  .scroll-mouse {
+    width: 16px;
+    height: 28px;
+    border: 2px solid var(--color-text-faint);
+    border-radius: 11px;
+    display: flex;
+    justify-content: center;
+    padding-top: 6px;
+  }
+
   .hero {
-    padding: var(--space-1) 0;
+    justify-content: start;
+    padding-top: var(--space-10);
   }
 
   .hero-massive-name {
     font-size: 8vw;
-    bottom: 4vh;
+    bottom: 16vh;
   }
 
   .scroll-indicator {

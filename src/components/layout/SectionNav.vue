@@ -209,7 +209,13 @@ onBeforeUnmount(() => {
 
 @media (max-width: 1024px) {
   .section-nav {
-    display: none;
+    right: var(--space-2);
+    top: calc(50% + var(--space-5));
+
+  }
+
+  .label {
+    font-size: 0.55rem;
   }
 }
 </style>

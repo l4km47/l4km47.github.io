@@ -436,17 +436,18 @@ cite {
 @media (max-width: 768px) {
   .about-hero-grid {
     grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
   }
 
   .profile-side {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
   }
 
   .avatar-wrap {
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
   }
 
   .philosophy-card {
