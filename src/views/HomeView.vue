@@ -716,6 +716,7 @@ onUnmounted(() => {
     flex-direction: column;
     text-align: center;
     gap: var(--space-12);
+    margin-top: -4vh;
   }
 
   .hero-desc {
@@ -753,6 +754,21 @@ onUnmounted(() => {
 
   .expertise-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 814px) {
+  .hero-content {
+    margin-top: 0;
+  }
+
+  .hero-massive-name {
+    font-size: clamp(2.3rem, 9vw, 4.5rem);
+    bottom: 2vh;
+  }
+
+  .scroll-indicator {
+    bottom: calc(2vh + clamp(2.3rem, 9vw, 4.5rem) + var(--space-2));
   }
 }
 
