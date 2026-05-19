@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- HERO -->
-    <section class="hero" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave" :style="{ '--scroll-y': scrollY }">
+    <section id="home-hero" class="hero" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave" :style="{ '--scroll-y': scrollY }">
       <div class="hero-bg">
         <div class="mesh-blob mesh-blob-1"></div>
         <div class="mesh-blob mesh-blob-2"></div>
@@ -72,7 +72,7 @@
     </section>
 
     <!-- FEATURED PROJECTS -->
-    <section class="section featured-section">
+    <section id="home-projects" class="section featured-section">
       <div class="container">
         <div class="section-header">
           <span class="section-label">Selected Work</span>
@@ -103,7 +103,7 @@
     </section>
 
     <!-- WHAT I DO -->
-    <section class="section what-i-do">
+    <section id="home-expertise" class="section what-i-do">
       <div class="container">
         <div class="section-header">
           <span class="section-label">Expertise</span>
@@ -139,7 +139,7 @@
     </section>
 
     <!-- CTA -->
-    <section class="section-sm cta-section">
+    <section id="home-cta" class="section-sm cta-section">
       <div class="container">
         <div class="cta-card card-glass reveal">
           <div class="cta-glow"></div>

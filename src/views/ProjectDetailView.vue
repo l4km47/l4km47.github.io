@@ -1,7 +1,7 @@
 <template>
   <div class="detail-page" v-if="project">
     <!-- Hero -->
-    <section class="detail-hero section-sm" :style="{ '--project-color': project.color }">
+    <section id="detail-hero" class="detail-hero section-sm" :style="{ '--project-color': project.color }">
       <div class="hero-bg-slider">
         <div 
           v-for="(bg, idx) in heroBackgrounds" 
@@ -65,7 +65,7 @@
     </div>
 
     <!-- Case Study Content -->
-    <section class="section case-study">
+    <section id="detail-case" class="section case-study">
       <div class="container">
         <div class="case-grid">
           <!-- Main content -->
@@ -130,7 +130,7 @@
           </div>
 
           <!-- Sidebar -->
-          <aside class="case-sidebar">
+          <aside id="detail-sidebar" class="case-sidebar">
             <!-- Highlights -->
             <div class="sidebar-card card reveal" v-if="project.highlights && project.highlights.length">
               <h3 class="sidebar-title">Key Highlights</h3>
@@ -188,7 +188,7 @@
         </div>
 
         <!-- Prev/Next nav -->
-        <div class="project-nav reveal">
+        <div id="detail-nav" class="project-nav reveal">
           <RouterLink v-if="prevProject" :to="`/projects/${prevProject.slug}`" class="nav-proj">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M19 12H5" />

@@ -1,7 +1,7 @@
 <template>
   <div class="contact-page">
     <!-- Hero -->
-    <section class="section-sm contact-hero">
+    <section id="contact-hero" class="section-sm contact-hero">
       <div class="hero-bg-subtle"></div>
       <div class="container text-center">
         <span class="section-label reveal">Let's Talk</span>

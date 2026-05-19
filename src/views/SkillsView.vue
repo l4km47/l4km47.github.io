@@ -1,6 +1,6 @@
 <template>
   <div class="skills-page">
-    <section class="section-sm skills-hero">
+    <section id="skills-hero" class="section-sm skills-hero">
       <div class="hero-bg-subtle"></div>
       <div class="container text-center">
         <span class="section-label reveal">Expertise</span>
@@ -12,7 +12,7 @@
     <section class="section" v-if="!loading && skills">
       <div class="container">
         <!-- Skill Groups -->
-        <div class="skill-groups">
+        <div id="skills-groups" class="skill-groups">
           <div v-for="(group, i) in skillGroups" :key="group.key" class="skill-group reveal" :class="`reveal-delay-${i + 1}`">
             <div class="group-header">
               <div class="group-icon" v-html="group.icon"></div>
@@ -41,7 +41,7 @@
           <span class="section-label">All Technologies</span>
           <h2 class="section-title reveal">Full <span class="gradient-text">Tech Stack</span></h2>
         </div>
-        <div class="tags-cloud reveal">
+        <div id="skills-tags" class="tags-cloud reveal">
           <span
             v-for="(tag, i) in skills.tags"
             :key="tag"
