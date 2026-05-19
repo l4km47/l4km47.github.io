@@ -226,6 +226,76 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   transform: translateY(-10px);
 }
 
+
+@media (min-width: 769px) {
+  .navbar {
+    top: 0;
+    bottom: 0;
+    right: auto;
+    width: var(--nav-side-width);
+    height: 100vh;
+    border-right: 1px solid transparent;
+    border-bottom: none;
+    justify-content: center;
+  }
+
+  .navbar.scrolled {
+    border-right-color: var(--color-border);
+    border-bottom-color: transparent;
+  }
+
+  .nav-inner {
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-6);
+    height: 100%;
+    width: 100%;
+    padding: var(--space-6) 0;
+  }
+
+  .nav-logo {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .nav-link {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    padding: var(--space-4) var(--space-2);
+  }
+
+  .nav-actions {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .nav-actions .btn {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    min-height: 110px;
+    min-width: 42px;
+    padding: var(--space-3) var(--space-2);
+    justify-content: center;
+  }
+
+  .nav-github {
+    gap: var(--space-1);
+  }
+
+  .nav-github svg {
+    transform: rotate(180deg);
+  }
+}
+
 @media (max-width: 768px) {
   .nav-links, .nav-actions { display: none; }
   .hamburger { display: flex; }
