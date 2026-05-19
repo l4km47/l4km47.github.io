@@ -10,6 +10,7 @@
       </RouterView>
     </main>
     <AppFooter />
+    <SectionNav />
     <ScrollToTop />
   </div>
 </template>
@@ -19,6 +20,7 @@ import AppNavbar from '@/components/layout/AppNavbar.vue'
 import AppFooter from '@/components/layout/AppFooter.vue'
 import MouseParticles from '@/components/layout/MouseParticles.vue'
 import ScrollToTop from '@/components/layout/ScrollToTop.vue'
+import SectionNav from '@/components/layout/SectionNav.vue'
 import { useRevealObserver } from '@/composables/useRevealObserver'
 
 useRevealObserver()

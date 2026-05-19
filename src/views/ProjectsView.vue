@@ -1,6 +1,6 @@
 <template>
   <div class="projects-page">
-    <section class="projects-hero section-sm">
+    <section id="projects-hero" class="projects-hero section-sm">
       <div class="hero-bg-subtle"></div>
       <div class="container text-center">
         <span class="section-label reveal">Portfolio</span>
@@ -9,7 +9,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section id="projects-grid" class="section">
       <div class="container">
         <div class="filter-wrap reveal">
           <div class="filter-tabs">
@@ -38,6 +38,16 @@
             class="reveal"
             :class="`reveal-delay-${(i % 4) + 1}`"
           />
+        </div>
+      </div>
+    </section>
+
+    <section id="projects-cta" class="section-sm projects-cta">
+      <div class="container">
+        <div class="card text-center">
+          <h2>Need a custom build?</h2>
+          <p>Let's discuss your product and ship something production-ready.</p>
+          <RouterLink to="/contact" class="btn btn-primary" style="margin-top: var(--space-4)">Start a Project</RouterLink>
         </div>
       </div>
     </section>
@@ -125,6 +135,7 @@ onMounted(async () => {
   background: rgba(255,255,255,0.15);
 }
 .projects-grid { min-height: 300px; }
+.projects-cta { padding-top: 0; }
 .loading-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));

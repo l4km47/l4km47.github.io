@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- HERO -->
-    <section class="hero" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave" :style="{ '--scroll-y': scrollY }">
+    <section id="home-hero" class="hero" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave" :style="{ '--scroll-y': scrollY }">
       <div class="hero-bg">
         <div class="mesh-blob mesh-blob-1"></div>
         <div class="mesh-blob mesh-blob-2"></div>
@@ -72,7 +72,7 @@
     </section>
 
     <!-- FEATURED PROJECTS -->
-    <section class="section featured-section">
+    <section id="home-projects" class="section featured-section">
       <div class="container">
         <div class="section-header">
           <span class="section-label">Selected Work</span>
@@ -103,7 +103,7 @@
     </section>
 
     <!-- WHAT I DO -->
-    <section class="section what-i-do">
+    <section id="home-expertise" class="section what-i-do">
       <div class="container">
         <div class="section-header">
           <span class="section-label">Expertise</span>
@@ -139,7 +139,7 @@
     </section>
 
     <!-- CTA -->
-    <section class="section-sm cta-section">
+    <section id="home-cta" class="section-sm cta-section">
       <div class="container">
         <div class="cta-card card-glass reveal">
           <div class="cta-glow"></div>
@@ -731,6 +731,29 @@ onUnmounted(() => {
 
   .expertise-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 814px) {
+  .hero {
+    padding: var(--space-16) 0;
+  }
+
+  .hero-content {
+    margin-top: 0;
+  }
+
+  .hero-massive-name {
+    font-size: clamp(2.2rem, 9vw, 4.4rem);
+    bottom: 2.5vh;
+    max-width: calc(100vw - 2rem);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .scroll-indicator {
+    bottom: calc(2.5vh + clamp(2.2rem, 9vw, 4.4rem) + var(--space-2));
   }
 }
 
