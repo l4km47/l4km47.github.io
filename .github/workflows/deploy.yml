@@ -3,6 +3,11 @@ name: Deploy Portfolio to GitHub Pages
 on:
   push:
     branches: [main]
+    # Docs-only changes do not change the built site.
+    paths-ignore:
+      - '**/*.md'
+      - 'docs/**'
+      - 'LICENSE'
   workflow_dispatch:
 
 # Least privilege by default; the deploy job opts into what it needs.
@@ -15,6 +20,8 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    # Hard cap: the build itself takes seconds, so anything past this is a hang.
+    timeout-minutes: 8
     permissions:
       contents: write # required to push the built site to gh-pages
     steps:
@@ -31,12 +38,12 @@ jobs:
           node-version: '24'
           cache: 'npm'
 
+      # --no-audit / --no-fund keep npm off the advisory + funding endpoints,
+      # which is what used to make this step take minutes instead of seconds.
+      # Dependency advisories are covered by Dependabot instead.
       - name: Install dependencies
-        run: npm ci --ignore-scripts
-
-      - name: Audit dependencies
-        run: npm audit --audit-level=high
-        continue-on-error: true
+        run: npm ci --ignore-scripts --no-audit --no-fund --prefer-offline
+        timeout-minutes: 5
 
       - name: Build
         run: npm run build

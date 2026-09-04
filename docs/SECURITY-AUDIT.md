@@ -84,7 +84,7 @@ External links used `rel="noopener"` only; `noreferrer` was missing, so the dest
 
 All three actions were referenced by mutable tag (`@v4`), including a third-party one (`peaceiris/actions-gh-pages`); a moved or compromised tag would have executed arbitrary code with a write-scoped token. `permissions: contents: write` was granted workflow-wide, and checkout persisted credentials into the working tree for later steps.
 
-**Fix:** every action is pinned to a full commit SHA (tag kept in a trailing comment), top-level `permissions: {}` with `contents: write` scoped to the deploy job only, `persist-credentials: false` on checkout, `npm ci --ignore-scripts` so no dependency lifecycle script runs in CI, a non-blocking `npm audit --audit-level=high` step, and a `concurrency` group so overlapping deploys cannot race.
+**Fix:** every action is pinned to a full commit SHA (tag kept in a trailing comment), top-level `permissions: {}` with `contents: write` scoped to the deploy job only, `persist-credentials: false` on checkout, `npm ci --ignore-scripts` so no dependency lifecycle script runs in CI, a job `timeout-minutes` cap, and a `concurrency` group so overlapping deploys cannot race. Advisory scanning is left to Dependabot rather than an in-workflow `npm audit`, which was adding ~5 minutes per deploy waiting on npm's advisory endpoint.
 
 ### 10. Vulnerable dependencies - **High (aggregate)**
 

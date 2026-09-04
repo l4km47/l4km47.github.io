@@ -19,7 +19,7 @@
 
       <!-- CTA -->
       <div class="nav-actions">
-        <a href="https://github.com/l4km47" target="_blank" rel="noopener" class="btn btn-ghost btn-sm nav-github">
+        <a href="https://github.com/l4km47" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm nav-github">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path
               d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
@@ -48,7 +48,7 @@
           </li>
         </ul>
         <div class="mobile-actions">
-          <a href="https://github.com/l4km47" target="_blank" rel="noopener" class="btn btn-outline w-full"
+          <a href="https://github.com/l4km47" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full"
             style="justify-content:center">
             GitHub Profile
           </a>
@@ -294,10 +294,20 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   .nav-inner {
     flex-direction: column;
     justify-content: space-between;
-    gap: var(--space-6);
+    gap: var(--space-4);
     height: 100%;
     width: 100%;
-    padding: var(--space-6) 0;
+    padding: var(--space-4) 0;
+    /* The rail is a fixed 100vh column of vertical text: let it scroll
+       internally instead of pushing the last items off the bottom of the
+       screen on short viewports. */
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+  }
+
+  .nav-inner::-webkit-scrollbar {
+    display: none;
   }
 
   .nav-logo {
@@ -308,16 +318,18 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
   .nav-links {
     flex-direction: column;
-    flex: 1;
+    /* shrink before overflowing, but stay centred in the leftover space */
+    flex: 0 1 auto;
+    margin: auto 0;
     justify-content: center;
     align-items: center;
-    gap: var(--space-4);
+    gap: var(--space-2);
   }
 
   .nav-link {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    padding: var(--space-4) var(--space-2);
+    padding: var(--space-2);
   }
 
   .nav-actions {
@@ -325,12 +337,16 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     gap: var(--space-4);
   }
 
+  .nav-actions {
+    flex-shrink: 0;
+  }
+
   .nav-actions .btn {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    min-height: 110px;
+    min-height: 92px;
     min-width: 42px;
-    padding: var(--space-3) var(--space-2);
+    padding: var(--space-2);
     justify-content: center;
   }
 
@@ -340,6 +356,47 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
   .nav-github svg {
     transform: rotate(180deg);
+  }
+}
+
+/* Short desktop viewports: tighten further, and drop the GitHub button —
+   it is still reachable from the hero, the about page and the footer. */
+@media (min-width: 769px) and (max-height: 820px) {
+  .nav-inner {
+    gap: var(--space-2);
+    padding: var(--space-3) 0;
+  }
+
+  .nav-links {
+    gap: var(--space-1);
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+    padding: var(--space-1);
+  }
+
+  .nav-actions .btn {
+    min-height: 78px;
+  }
+}
+
+@media (min-width: 769px) and (max-height: 700px) {
+  .nav-github {
+    display: none;
+  }
+}
+
+/* Very short viewports (laptops in split-screen, small windows): drop the
+   vertical wordmark too — "Home" in the link list goes to the same place. */
+@media (min-width: 769px) and (max-height: 640px) {
+  .nav-logo {
+    display: none;
+  }
+
+  .nav-actions .btn {
+    min-height: 64px;
+    font-size: 0.8rem;
   }
 }
 

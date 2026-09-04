@@ -39,7 +39,7 @@
                 </svg>
               </a>
 
-              <a href="https://wa.me/94768104839" target="_blank" rel="noopener" class="channel-card card">
+              <a href="https://wa.me/94768104839" target="_blank" rel="noopener noreferrer" class="channel-card card">
                 <div class="channel-icon whatsapp-icon">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                     <path
@@ -57,7 +57,7 @@
                 </svg>
               </a>
 
-              <a href="https://github.com/l4km47" target="_blank" rel="noopener" class="channel-card card">
+              <a href="https://github.com/l4km47" target="_blank" rel="noopener noreferrer" class="channel-card card">
                 <div class="channel-icon github-icon">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                     <path

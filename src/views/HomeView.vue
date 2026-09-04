@@ -159,7 +159,7 @@
             <RouterLink to="/contact" class="btn btn-primary btn-lg">
               Get In Touch
             </RouterLink>
-            <a href="https://github.com/l4km47" target="_blank" rel="noopener" class="btn btn-outline btn-lg">
+            <a href="https://github.com/l4km47" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">
               Browse GitHub
             </a>
           </div>
