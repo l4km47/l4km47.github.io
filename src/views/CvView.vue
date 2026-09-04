@@ -132,8 +132,6 @@
           </div>
         </div>
 
-        <footer class="cv-footer">Generated from {{ stripScheme(websiteUrl) || 'this portfolio' }} - {{ generatedOn }}
-        </footer>
       </article>
     </section>
 
@@ -148,6 +146,7 @@ import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useData } from '@/composables/useData'
 import AppIcon from '@/components/ui/AppIcon.vue'
 import { safeUrl } from '@/utils/security'
+import { downloadCvPdf } from '@/utils/cvPdf'
 
 const { loading, fetchData } = useData()
 
@@ -195,10 +194,10 @@ const skillGroups = computed(() => {
     .filter(group => group.items.length)
 })
 
-const generatedOn = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
 
 function downloadPdf() {
-  window.print()
+  // Generated client-side and handed to the browser as a file: no print dialog.
+  downloadCvPdf(cv.value, { projects: selectedProjects.value, skillGroups: skillGroups.value })
 }
 
 /* ---- Plain-text export, built in the browser from the same data ---- */
@@ -260,7 +259,6 @@ const plainText = computed(() => {
     out.push(line, 'LANGUAGES', line, cv.value.languages.map(l => `${l.name} - ${l.level}`).join(', '), '')
   }
 
-  out.push(`Generated from ${stripScheme(websiteUrl.value)} on ${generatedOn}.`)
   return out.join('\n')
 })
 
@@ -386,10 +384,10 @@ onUnmounted(() => {
 
 .cv-block-title {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.71rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #6b7280;
+  color: #565e6b;
   margin: 0 0 var(--space-2);
   padding-bottom: 0.2rem;
   border-bottom: 1px solid #d9dde5;
@@ -412,10 +410,10 @@ onUnmounted(() => {
 
 .cv-contact-label {
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.65rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #9aa1ad;
+  color: #7a828f;
 }
 
 .cv-contact a {
@@ -433,12 +431,12 @@ onUnmounted(() => {
 }
 
 .cv-tag {
-  font-size: 0.7rem;
+  font-size: 0.73rem;
   line-height: 1.3;
   padding: 0.15rem 0.4rem;
-  border: 1px solid #d3d8e2;
+  border: 1px solid #c7cdd8;
   border-radius: 4px;
-  color: #3b4252;
+  color: #2b313c;
 }
 
 .cv-lang-list {
@@ -536,19 +534,8 @@ onUnmounted(() => {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: #6b7280;
-}
-
-.cv-footer {
-  margin-top: var(--space-6);
-  padding-top: var(--space-2);
-  border-top: 1px solid #d9dde5;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: #9aa1ad;
-  text-align: center;
+  font-size: 0.78rem;
+  color: #4a5162;
 }
 
 @media (max-width: 760px) {
@@ -615,9 +602,6 @@ onUnmounted(() => {
     -webkit-print-color-adjust: exact;
   }
 
-  .cv-footer {
-    color: #6b7280;
-  }
 }
 
 </style>
