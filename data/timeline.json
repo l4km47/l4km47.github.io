@@ -49,7 +49,7 @@
     "icon": "rocket"
   },
   {
-    "year": "2022 — Present",
+    "year": "2022 - Present",
     "title": "Senior Overthinker & Project Manager @ Cyber Yakku",
     "description": "Currently leading teams and driving software strategy. This means I'm responsible for mobile architecture, systems engineering, and managing project timelines that clients desperately try to shorten. I mostly manage cross-functional chaos.",
     "type": "work",
@@ -64,21 +64,21 @@
   },
   {
     "year": "2023",
-    "title": "Dansal App — 800K+ Unsuspecting Users",
+    "title": "Dansal App - 800K+ Unsuspecting Users",
     "description": "Launched the Dansal App for Vesak festival tracking. Shockingly reached 800,000+ downloads and was featured on national radio (Sha FM), confirming that Sri Lanka has a massive appetite for free food and my apps.",
     "type": "project",
     "icon": "star"
   },
   {
     "year": "2025",
-    "title": "ExcellentComputers.lk — Active E-Commerce",
+    "title": "ExcellentComputers.lk - Active E-Commerce",
     "description": "Built and deployed a full production e-commerce platform for a computer hardware retailer. It is live, it accepts real currency, and it successfully trades computer parts for money without breaking.",
     "type": "project",
     "icon": "shopping-cart"
   },
   {
     "year": "2026",
-    "title": "The Alpha Platform — Officially Haunted",
+    "title": "The Alpha Platform - Officially Haunted",
     "description": "Launched a full SaaS platform at thealpha.vip. Implemented cryptographic license protection and hardware-ID locking to keep out freeloading users who try to outsmart my licensing algorithms.",
     "type": "project",
     "icon": "shield"

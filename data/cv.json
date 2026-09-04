@@ -1,0 +1,66 @@
+{
+  "profile": {
+    "name": "Lakmal Siriwardhana",
+    "title": "Full-Stack Developer & Systems Engineer",
+    "location": "Sri Lanka",
+    "email": "manojlakmal999@gmail.com",
+    "phone": "+94 76 810 4839",
+    "github": "https://github.com/l4km47",
+    "website": "https://siriwardhana.com",
+    "summary": "Full-stack developer and systems engineer with a decade of hands-on experience spanning production web platforms, cross-platform mobile apps, and Windows systems-level development. Comfortable owning a product end to end: database schema, backend services, UI, release pipeline. Shipped a consumer Android app with 800K+ downloads and built cryptographic licensing and HWID authentication systems used in production. Equally at home in a Vue component and in a kernel-mode driver or a disassembler."
+  },
+  "experience": [
+    {
+      "role": "Project Manager & Senior Developer",
+      "company": "Cyber Yakku",
+      "period": "2022 - Present",
+      "location": "Sri Lanka",
+      "points": [
+        "Lead delivery on client and in-house products across web, mobile and desktop, from scoping through deployment and support.",
+        "Architect and build production platforms with Vue 3, Node.js/Express, Flask and PostgreSQL, including e-commerce and SaaS dashboards.",
+        "Design secure authentication and licensing systems, covering JWT session handling, Argon2 password hashing and HWID-bound activation.",
+        "Own CI/CD with GitHub Actions and Docker, plus release, monitoring and incident response for live services."
+      ]
+    },
+    {
+      "role": "Full-Stack Developer & Systems Administrator",
+      "company": "Acom Information Technology",
+      "period": "2019 - 2022",
+      "location": "Sri Lanka",
+      "points": [
+        "Built and maintained internal and client-facing web applications alongside day-to-day systems administration.",
+        "Ran Linux and Windows server infrastructure: deployments, backups, networking, and hardware and network troubleshooting.",
+        "Automated recurring operational work with Python and Bash tooling, cutting manual maintenance effort.",
+        "Supported end users and handled chip-level diagnostics and repair on client hardware."
+      ]
+    },
+    {
+      "role": "Independent Developer & Hardware Technician",
+      "company": "Freelance",
+      "period": "2014 - 2019",
+      "location": "Sri Lanka",
+      "points": [
+        "Started in Visual Basic, C# and C/C++, moving into Windows internals, reverse engineering and kernel-mode development.",
+        "Delivered freelance web projects while performing board-level laptop repair, including BGA reballing and power-rail fault diagnosis."
+      ]
+    }
+  ],
+  "focus": [
+    "Full-stack web development (Vue 3, Node.js, Flask, PostgreSQL)",
+    "Windows systems & kernel-mode development (C/C++, WDK, HWID authentication)",
+    "Cross-platform & native mobile (Flutter, Android, Room, Retrofit, Firebase)",
+    "Reverse engineering & binary analysis (IDA Pro, WinDbg, x64dbg, Ghidra, JADX)",
+    "DevOps & automation (Docker, GitHub Actions, Linux, Bash)"
+  ],
+  "education": [
+    {
+      "title": "Self-directed study - computer systems & software engineering",
+      "detail": "Ten years of continuous self-study across systems programming, application security and web engineering, applied directly in production work since 2019.",
+      "period": "2014 - Present"
+    }
+  ],
+  "languages": [
+    { "name": "Sinhala", "level": "Native" },
+    { "name": "English", "level": "Professional working proficiency" }
+  ]
+}

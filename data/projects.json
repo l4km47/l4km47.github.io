@@ -2,7 +2,7 @@
   {
     "slug": "dansal-app",
     "title": "Dansal App",
-    "subtitle": "Community Festival Navigation — Sri Lanka",
+    "subtitle": "Community Festival Navigation - Sri Lanka",
     "category": [
       "mobile",
       "community"
@@ -23,13 +23,13 @@
     "thumbnail": "/data/images/1.png",
     "color": "#06b6d4",
     "overview": "A cross-platform mobile application (iOS & Android) that helps Sri Lankans find Dansal (festival illuminations) and Vesak/Poson celebrations across the country. Reached 800,000+ downloads and was featured on national media.",
-    "goal": "Create a community-driven platform where users could discover nearby Dansal locations, view details, and navigate to them during Vesak and Poson festival seasons — solving a real problem for millions of Sri Lankans.",
+    "goal": "Create a community-driven platform where users could discover nearby Dansal locations, view details, and navigate to them during Vesak and Poson festival seasons - solving a real problem for millions of Sri Lankans.",
     "role": "Core developer. Built the mobile application using Flutter for cross-platform compatibility, integrated Firebase Firestore for real-time community data, and implemented geolocation features for proximity-based Dansal discovery.",
     "process": "The app needed to handle thousands of concurrent users during festival peak times. Firebase Firestore was chosen for its real-time sync and scalability. Geolocation queries were optimized using GeoHash algorithms. The UI was designed to be accessible to a general audience of all ages, with large touch targets and clear navigation.",
     "outcome": "800,000+ downloads across iOS and Android. Featured on Sha FM (national radio) and other media outlets. Became the go-to app for Vesak festival navigation in Sri Lanka during the 2023 season.",
     "architecture": "flowchart TD\n  A[Flutter App iOS/Android] -->|Real-time| B[Firebase Firestore]\n  A -->|Auth| C[Firebase Auth]\n  A -->|Location| D[Geolocation API]\n  A -->|Maps| E[Google Maps SDK]\n  B -->|Push| F[Firebase Cloud Messaging]\n  G[Community Users] -->|Submit| A",
     "highlights": [
-      "800,000+ downloads — top utility app during Vesak 2023",
+      "800,000+ downloads - top utility app during Vesak 2023",
       "Real-time community data sync via Firebase Firestore",
       "GeoHash-based proximity queries for nearby Dansal discovery",
       "Cross-platform (iOS + Android) from single Flutter codebase",
@@ -46,7 +46,7 @@
   {
     "slug": "excellent-computers",
     "title": "ExcellentComputers",
-    "subtitle": "Production E-Commerce — Computer Hardware Store",
+    "subtitle": "Production E-Commerce - Computer Hardware Store",
     "category": [
       "web",
       "ecommerce"
@@ -66,7 +66,7 @@
     "featured": true,
     "thumbnail": "/data/images/ec-1.png",
     "color": "#10b981",
-    "overview": "A full production e-commerce platform for a computer hardware retailer in Sri Lanka. Live at excellentcomputers.lk — handling real customer orders for CPUs, GPUs, peripherals, and complete PC builds.",
+    "overview": "A full production e-commerce platform for a computer hardware retailer in Sri Lanka. Live at excellentcomputers.lk - handling real customer orders for CPUs, GPUs, peripherals, and complete PC builds.",
     "goal": "Deliver a fully functional online store for a physical computer hardware shop, enabling customers to browse the product catalog, configure builds, and place orders with secure payment processing.",
     "role": "Full-stack developer. Designed the database, built the REST API, implemented the Vue 3 storefront, and integrated payment processing. Also handled deployment and hosting setup.",
     "process": "Began with a product catalog data model supporting multiple categories and variant SKUs. Built a high-performance REST API with Express, using MySQL for relational product and order data. The Vue 3 SPA frontend provides fast navigation with product filtering, search, and a persistent shopping cart. Integrated a local payment gateway for LKR transactions.",
@@ -111,7 +111,7 @@
     "color": "#7c3aed",
     "overview": "A production SaaS platform featuring a full-featured admin dashboard with hardware ID (HWID) based software licensing. Deployed and serving real users at thealpha.vip.",
     "goal": "Build a secure, scalable SaaS dashboard that manages users and issues hardware-fingerprinted license keys to protect proprietary software from unauthorized use or sharing.",
-    "role": "Solo developer — designed and implemented the full stack from database schema to UI, including the HWID generation algorithm and cryptographic license validation.",
+    "role": "Solo developer - designed and implemented the full stack from database schema to UI, including the HWID generation algorithm and cryptographic license validation.",
     "process": "Started by designing the database schema for users, licenses, and hardware fingerprints. Implemented the HWID service in C# using low-level Windows APIs to generate a unique hardware fingerprint per machine. Built a REST API with Express, secured all endpoints with JWT auth and Argon2 password hashing. The Vue 3 dashboard was built with a modular component architecture, providing real-time stats, user management, and license issuance workflows.",
     "outcome": "Deployed and live at thealpha.vip. The platform provides secure license management with hardware fingerprinting, preventing license sharing. Demonstrates full-stack engineering, cryptographic systems, and production deployment at scale.",
     "architecture": "flowchart TD\n  A[Vue 3 Dashboard] -->|REST API| B[Express.js API]\n  B -->|Auth| C[JWT + Argon2]\n  B -->|Query| D[(PostgreSQL)]\n  B -->|Validate| E[HWID Service]\n  E -->|Fingerprint| F[Hardware APIs]\n  A -->|HTTPS| G[CDN/Reverse Proxy]",
@@ -154,7 +154,7 @@
     "thumbnail": "/data/images/weedr.png",
     "color": "#f59e0b",
     "overview": "A small, secure Flask web dashboard that drives qBittorrent-nox. Provides a password-protected web UI for managing torrent transfers and downloaded files, with an activity log and JSON APIs for automation.",
-    "goal": "Build a clean, self-hosted alternative to qBittorrent's default UI — with stronger security (Argon2 password hashing, CSRF protection), an activity audit log, and background ZIP jobs for easy file packaging.",
+    "goal": "Build a clean, self-hosted alternative to qBittorrent's default UI - with stronger security (Argon2 password hashing, CSRF protection), an activity audit log, and background ZIP jobs for easy file packaging.",
     "role": "Solo developer. Designed and implemented the entire Flask application, including the CSRF protection layer, JWT session management, SQLite-based activity logging, and the qBittorrent Web API integration.",
     "process": "The challenge was creating a secure wrapper around qBittorrent's API without duplicating its complexity. Used Flask Blueprints to separate concerns (auth, torrents, files, zips). Implemented Argon2id for password hashing and per-request CSRF tokens. The activity log stores all user actions in SQLite for auditability. Optional IP whitelisting adds another layer of access control.",
     "outcome": "A production-ready self-hosted tool used for personal file management. Open-sourced under MIT license. Demonstrates secure web application design, REST API integration, and systems-level thinking.",
@@ -170,7 +170,7 @@
     "screenshots": [
       "/data/images/weedr.png"
     ],
-    "disclaimer": "Weedr is a technical tool for managing downloads on your own hardware. Use it responsibly — only download and share content you have the legal right to distribute. The author does not condone copyright infringement. Users are solely responsible for compliance with applicable laws in their jurisdiction."
+    "disclaimer": "Weedr is a technical tool for managing downloads on your own hardware. Use it responsibly - only download and share content you have the legal right to distribute. The author does not condone copyright infringement. Users are solely responsible for compliance with applicable laws in their jurisdiction."
   },
   {
     "slug": "apk-wooper",
@@ -198,18 +198,18 @@
     "thumbnail": "/data/images/apk-wooper-4.png",
     "color": "#ef4444",
     "overview": "A self-hosted APK analysis workspace. Drop an APK → decompile with JADX + Apktool → searchable file tree + Monaco editor → hashes, APKiD packer detection, manifest summary → pluggable static analysis for secrets, SDKs, exposed components, and native strings.",
-    "goal": "Provide security researchers and developers with a privacy-respecting, self-hosted tool for analyzing Android APKs — no uploading to external services, no data retention, full control on your own hardware.",
+    "goal": "Provide security researchers and developers with a privacy-respecting, self-hosted tool for analyzing Android APKs - no uploading to external services, no data retention, full control on your own hardware.",
     "role": "Solo developer. Designed the plugin architecture, implemented the Flask backend orchestrating JADX and Apktool, built the Monaco-editor-based frontend, and wrote the bundled static analysis plugins.",
-    "process": "The core challenge was orchestrating multiple decompiler processes efficiently and presenting their output in a usable UI. Used Flask to manage async decompiler jobs, storing output in a structured file tree. The frontend uses the Monaco editor (same as VS Code) for syntax-highlighted code browsing. A plugin system allows custom static analysis scripts to run over decompiled output — detecting hardcoded secrets, third-party SDKs, and vulnerable component configurations.",
+    "process": "The core challenge was orchestrating multiple decompiler processes efficiently and presenting their output in a usable UI. Used Flask to manage async decompiler jobs, storing output in a structured file tree. The frontend uses the Monaco editor (same as VS Code) for syntax-highlighted code browsing. A plugin system allows custom static analysis scripts to run over decompiled output - detecting hardcoded secrets, third-party SDKs, and vulnerable component configurations.",
     "outcome": "A fully functional, privacy-first APK analysis tool. Open-sourced under MIT. Demonstrates systems integration, plugin architecture design, and security research tooling. Used by security researchers for mobile app auditing.",
     "architecture": "flowchart TD\n  A[Browser: Monaco UI] -->|Upload APK| B[Flask Backend]\n  B -->|Decompile| C[JADX]\n  B -->|Resources| D[Apktool]\n  B -->|Detect| E[APKiD]\n  C --> F[File Tree]\n  D --> F\n  A -->|Browse| F\n  F -->|Plugins| G[Static Analysis]\n  G -->|Report| A",
     "highlights": [
       "JADX + Apktool dual decompiler pipeline for maximum coverage",
       "Monaco editor (VS Code engine) for in-browser code browsing",
       "APKiD packer/protector detection",
-      "Pluggable static analysis — secrets, SDKs, exposed components",
+      "Pluggable static analysis - secrets, SDKs, exposed components",
       "Searchable file tree with syntax highlighting",
-      "All analysis done locally — no external data upload"
+      "All analysis done locally - no external data upload"
     ],
     "screenshots": [
       "/data/images/apk-wooper-1.png",
@@ -217,7 +217,7 @@
       "/data/images/apk-wooper-3.png",
       "/data/images/apk-wooper-4.png"
     ],
-    "disclaimer": "APK-Wooper is intended for legitimate security research and analysis of Android applications you are legally authorized to inspect — including apps you developed, open-source apps, or apps you have written permission to audit. Reverse engineering proprietary software without authorization may violate terms of service or applicable laws. The author does not condone unauthorized access or IP theft. U.S. DMCA Section 1201 provides explicit exemptions for good-faith security research."
+    "disclaimer": "APK-Wooper is intended for legitimate security research and analysis of Android applications you are legally authorized to inspect - including apps you developed, open-source apps, or apps you have written permission to audit. Reverse engineering proprietary software without authorization may violate terms of service or applicable laws. The author does not condone unauthorized access or IP theft. U.S. DMCA Section 1201 provides explicit exemptions for good-faith security research."
   },
   {
     "slug": "devtools-detector",
