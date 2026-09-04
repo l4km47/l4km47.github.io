@@ -44,6 +44,10 @@
               </svg>
               Send Binary
             </RouterLink>
+            <RouterLink to="/cv" class="btn btn-ghost btn-lg">
+              <AppIcon name="download" :size="18" :stroke-width="2" />
+              Download CV
+            </RouterLink>
           </div>
         </div>
 

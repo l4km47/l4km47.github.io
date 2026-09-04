@@ -92,7 +92,7 @@ const props = defineProps({
 
 const imgError = ref(false)
 
-// Data comes from a fetched JSON file — keep URLs and colours on an allowlist
+// Data comes from a fetched JSON file - keep URLs and colours on an allowlist
 // so a tampered data file cannot inject `javascript:` links or CSS payloads.
 const githubUrl = computed(() => safeUrl(props.project.github))
 const demoUrl = computed(() => safeUrl(props.project.demo))

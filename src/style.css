@@ -1,5 +1,5 @@
 /* =============================================
-   DESIGN SYSTEM — CSS Custom Properties
+   DESIGN SYSTEM - CSS Custom Properties
    ============================================= */
 :root {
   /* Color Palette */
@@ -677,4 +677,58 @@ pre::-webkit-scrollbar-thumb {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+/* =============================================
+   PRINT - used by the /cv page's "Download PDF"
+   Everything except the CV sheet is dropped so the
+   browser's print-to-PDF produces a clean résumé.
+   ============================================= */
+@media print {
+
+  html,
+  body,
+  #app-root {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #16181d !important;
+  }
+
+  #app-root::before,
+  #app-root::after {
+    display: none !important;
+  }
+
+  .navbar,
+  .footer,
+  .section-nav,
+  .scroll-to-top,
+  .mouse-bg,
+  .no-print {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  .container {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .section,
+  .section-sm {
+    padding: 0 !important;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  @page {
+    size: A4;
+    margin: 14mm 14mm;
+  }
 }

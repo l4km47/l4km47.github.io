@@ -8,7 +8,7 @@
           <!-- Profile -->
           <div class="profile-side reveal">
             <div class="avatar-wrap">
-              <img src="https://avatars.githubusercontent.com/l4km47" alt="Lakmal — Full-Stack Developer" class="avatar"
+              <img src="https://avatars.githubusercontent.com/l4km47" alt="Lakmal - Full-Stack Developer" class="avatar"
                 loading="eager" />
               <div class="avatar-ring"></div>
               <div class="avatar-badge">
@@ -59,7 +59,7 @@
                 My work spans from <strong>Windows kernel drivers and HWID bypasses</strong> to
                 <strong>production SaaS platforms and mobile apps</strong>. I've shipped apps with 800K+ downloads,
                 proving that nearly a million people are surprisingly trusting of my code, and engineered
-                cryptographic licensing systems that work perfectly—right up until someone finds a typo.
+                cryptographic licensing systems that work perfectly-right up until someone finds a typo.
               </p>
               <p>
                 If you look at my GitHub, it looks empty. That’s because <strong>my most chaotic work lives in
@@ -85,6 +85,7 @@
             <div class="bio-actions reveal reveal-delay-4">
               <RouterLink to="/projects" class="btn btn-primary">View the Damage</RouterLink>
               <RouterLink to="/contact" class="btn btn-outline">Complain Here</RouterLink>
+              <RouterLink to="/cv" class="btn btn-ghost">Download CV</RouterLink>
             </div>
           </div>
 
@@ -129,7 +130,7 @@
             <span class="quote-mark">"</span>
             <p class="quote-text">Living in typical buduammo life and little bit ammata hudu here and there.</p>
           </blockquote>
-          <cite>— me</cite>
+          <cite>- me</cite>
         </div>
       </div>
     </section>

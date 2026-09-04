@@ -5,7 +5,7 @@
       <div class="container text-center">
         <span class="section-label reveal">Expertise</span>
         <h1 class="reveal reveal-delay-1">Digital <span class="gradient-text">Literacy</span></h1>
-        <p class="page-desc reveal reveal-delay-2">A snapshot of my technical toolkit — languages, frameworks, and
+        <p class="page-desc reveal reveal-delay-2">A snapshot of my technical toolkit - languages, frameworks, and
           domains I work in.</p>
       </div>
     </section>
@@ -63,7 +63,7 @@ const { loading, fetchData } = useData()
 const skills = ref(null)
 const barsVisible = ref(false)
 
-// Skill data is fetched from JSON — clamp/validate before it becomes CSS.
+// Skill data is fetched from JSON - clamp/validate before it becomes CSS.
 const safeLevel = value => `${Math.min(100, Math.max(0, Number(value) || 0))}%`
 
 const skillGroups = [

@@ -11,31 +11,37 @@ const routes = [
     path: '/about',
     name: 'About',
     component: () => import('@/views/AboutView.vue'),
-    meta: { title: 'About — Lakmal' }
+    meta: { title: 'About - Lakmal' }
   },
   {
     path: '/projects',
     name: 'Projects',
     component: () => import('@/views/ProjectsView.vue'),
-    meta: { title: 'Projects — Lakmal' }
+    meta: { title: 'Projects - Lakmal' }
   },
   {
     path: '/projects/:slug',
     name: 'ProjectDetail',
     component: () => import('@/views/ProjectDetailView.vue'),
-    meta: { title: 'Project — Lakmal' }
+    meta: { title: 'Project - Lakmal' }
   },
   {
     path: '/skills',
     name: 'Skills',
     component: () => import('@/views/SkillsView.vue'),
-    meta: { title: 'Skills — Lakmal' }
+    meta: { title: 'Skills - Lakmal' }
+  },
+  {
+    path: '/cv',
+    name: 'CV',
+    component: () => import('@/views/CvView.vue'),
+    meta: { title: 'CV - Lakmal Siriwardhana' }
   },
   {
     path: '/contact',
     name: 'Contact',
     component: () => import('@/views/ContactView.vue'),
-    meta: { title: 'Contact — Lakmal' }
+    meta: { title: 'Contact - Lakmal' }
   },
   {
     path: '/:pathMatch(.*)*',

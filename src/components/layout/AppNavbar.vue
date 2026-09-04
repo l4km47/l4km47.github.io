@@ -77,6 +77,7 @@ const navLinks = [
   },
   { to: '/projects', label: 'Legacy' },
   { to: '/skills', label: 'Toolbox' },
+  { to: '/cv', label: 'CV' },
   { to: '/contact', label: 'File a Ticket' }
 ]
 

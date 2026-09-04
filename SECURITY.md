@@ -10,7 +10,7 @@ Please report issues privately to **manojlakmal999@gmail.com** rather than openi
 
 In scope: anything in this repository and the site served at https://l4km47.github.io.
 
-Out of scope: findings that require an already-compromised repository or account; missing `frame-ancestors` / `X-Content-Type-Options` in the meta CSP (they cannot be delivered by meta tag — GitHub Pages sends the equivalent headers); the public email address and phone number, which are published deliberately; and volumetric or denial-of-service testing against GitHub's infrastructure.
+Out of scope: findings that require an already-compromised repository or account; missing `frame-ancestors` / `X-Content-Type-Options` in the meta CSP (they cannot be delivered by meta tag - GitHub Pages sends the equivalent headers); the public email address and phone number, which are published deliberately; and volumetric or denial-of-service testing against GitHub's infrastructure.
 
 ## What is already in place
 
