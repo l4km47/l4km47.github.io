@@ -7,12 +7,8 @@
         <div class="cv-actions">
           <button class="btn btn-primary" @click="downloadPdf">
             <AppIcon name="download" :size="16" :stroke-width="2" />
-            PDF
+            Download PDF
           </button>
-          <a class="btn btn-outline" :href="txtHref" :download="txtFilename">
-            <AppIcon name="file" :size="16" :stroke-width="2" />
-            .txt
-          </a>
         </div>
       </div>
     </section>
@@ -142,7 +138,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useData } from '@/composables/useData'
 import AppIcon from '@/components/ui/AppIcon.vue'
 import { safeUrl } from '@/utils/security'
@@ -200,82 +196,6 @@ function downloadPdf() {
   downloadCvPdf(cv.value, { projects: selectedProjects.value, skillGroups: skillGroups.value })
 }
 
-/* ---- Plain-text export, built in the browser from the same data ---- */
-
-const plainText = computed(() => {
-  if (!cv.value) return ''
-  const p = cv.value.profile
-  const line = '='.repeat(64)
-  const out = [
-    p.name,
-    p.title,
-    [p.location, p.email, p.phone, stripScheme(githubUrl.value), stripScheme(websiteUrl.value)]
-      .filter(Boolean).join(' | '),
-    '',
-    line,
-    'PROFILE',
-    line,
-    p.summary,
-    ''
-  ]
-
-  if (cv.value.focus?.length) {
-    out.push(line, 'CORE FOCUS', line, ...cv.value.focus.map(f => `- ${f}`), '')
-  }
-
-  if (cv.value.experience?.length) {
-    out.push(line, 'EXPERIENCE', line)
-    for (const job of cv.value.experience) {
-      out.push(`${job.role} - ${job.company} (${job.period})`)
-      if (job.location) out.push(job.location)
-      out.push(...job.points.map(pt => `  - ${pt}`), '')
-    }
-  }
-
-  if (selectedProjects.value.length) {
-    out.push(line, 'SELECTED PROJECTS', line)
-    for (const proj of selectedProjects.value) {
-      out.push(`${proj.title} (${proj.year}) - ${proj.subtitle}`)
-      out.push(`  ${proj.overview}`)
-      if (proj.tech.length) out.push(`  Tech: ${proj.tech.join(', ')}`)
-      if (proj.link) out.push(`  ${stripScheme(proj.link)}`)
-      out.push('')
-    }
-  }
-
-  if (skillGroups.value.length) {
-    out.push(line, 'TECHNICAL SKILLS', line)
-    out.push(...skillGroups.value.map(g => `${g.label}: ${g.items.join(', ')}`), '')
-  }
-
-  if (cv.value.education?.length) {
-    out.push(line, 'EDUCATION & TRAINING', line)
-    for (const ed of cv.value.education) {
-      out.push(`${ed.title} (${ed.period})`, `  ${ed.detail}`, '')
-    }
-  }
-
-  if (cv.value.languages?.length) {
-    out.push(line, 'LANGUAGES', line, cv.value.languages.map(l => `${l.name} - ${l.level}`).join(', '), '')
-  }
-
-  return out.join('\n')
-})
-
-// Blob URL for the .txt download, revoked when the view is torn down.
-const txtHref = ref('')
-let currentObjectUrl = ''
-
-const txtFilename = computed(() =>
-  `${(cv.value?.profile?.name ?? 'cv').toLowerCase().replace(/[^a-z0-9]+/g, '-')}-cv.txt`
-)
-
-function refreshTxtHref() {
-  if (currentObjectUrl) URL.revokeObjectURL(currentObjectUrl)
-  currentObjectUrl = URL.createObjectURL(new Blob([plainText.value], { type: 'text/plain;charset=utf-8' }))
-  txtHref.value = currentObjectUrl
-}
-
 onMounted(async () => {
   const [cvData, projectData, skillData] = await Promise.all([
     fetchData('/data/cv.json'),
@@ -285,11 +205,6 @@ onMounted(async () => {
   cv.value = cvData
   projects.value = projectData || []
   skills.value = skillData
-  if (cv.value) refreshTxtHref()
-})
-
-onUnmounted(() => {
-  if (currentObjectUrl) URL.revokeObjectURL(currentObjectUrl)
 })
 </script>
 

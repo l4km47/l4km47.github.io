@@ -25,10 +25,9 @@ The portfolio's content is loaded dynamically, making updates painless:
 
 ## Downloadable CV
 
-The `/cv` route renders a print-ready résumé assembled at runtime from `cv.json`, `projects.json` and `skills.json`, so it can never drift out of sync with the rest of the site. Any visitor can:
+The `/cv` route renders a two-column resume assembled at runtime from `cv.json`, `projects.json` and `skills.json`, so it can never drift out of sync with the rest of the site.
 
-- **Download PDF** — opens the browser print dialog; choosing *Save as PDF* produces a clean A4 document (the site chrome is hidden by the print stylesheet in `src/style.css`).
-- **Plain text (.txt)** — generates the same résumé as text in the browser and downloads it directly.
+**Download PDF** generates a real A4 PDF in the browser and hands it straight to the visitor: no print dialog, no server round-trip. The PDF is written by `src/utils/pdf.js`, a small dependency-free writer using the PDF standard-14 fonts, with line breaking measured through the canvas API so the metrics match Helvetica; `src/utils/cvPdf.js` holds the layout.
 
 No photo is included, by design. To adapt it for yourself, edit `public/data/cv.json`.
 
