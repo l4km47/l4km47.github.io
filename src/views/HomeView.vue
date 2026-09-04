@@ -119,7 +119,7 @@
           <div v-for="(item, i) in expertise" :key="item.title" class="expertise-card card reveal"
             :class="`reveal-delay-${i + 1}`">
             <div class="expertise-icon" :style="{ color: item.color }">
-              <component :is="'div'" v-html="item.icon"></component>
+              <AppIcon :name="item.icon" :size="32" />
             </div>
             <h3>{{ item.title }}</h3>
             <p>{{ item.desc }}</p>
@@ -169,6 +169,7 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useData } from '@/composables/useData'
 import ProjectCard from '@/components/projects/ProjectCard.vue'
+import AppIcon from '@/components/ui/AppIcon.vue'
 
 const { loading, fetchData } = useData()
 const projects = ref([])
@@ -209,42 +210,42 @@ const expertise = [
     color: '#7c3aed',
     desc: 'Building modern web applications from database schemas up to the polished UI, mostly so I can complain about aligning elements in CSS. Handling Vue 3, React, Node.js, and Python backends that work flawlessly until a user opens them.',
     tags: ['Vue 3', 'Node.js', 'Flask', 'PostgreSQL'],
-    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`
+    icon: 'monitor'
   },
   {
     title: 'Systems & Kernel Torment',
     color: '#06b6d4',
     desc: 'Windows kernel driver development, low-level hardware interaction, and HWID authentication systems. I specialize in writing highly privileged code that gives the operating system excellent, creative new reasons to display a blue screen.',
     tags: ['C++', 'C#', 'WDK', 'HWID'],
-    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M15 20v2M2 15h2M20 15h2M9 2v2M9 20v2M2 9h2M20 9h2"/></svg>`
+    icon: 'chip'
   },
   {
     title: 'Mobile App Construction',
     color: '#10b981',
     desc: 'Crafting cross-platform apps with Flutter and native Android frameworks. Successfully wiring up database architectures, real-time background services, and maps to track precisely where my code is currently eating up a phone\'s battery life.',
     tags: ['Flutter', 'Android (Native)', 'Room DB', 'Retrofit', 'Firebase'],
-    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>`
+    icon: 'phone'
   },
   {
     title: 'Reverse Engineering (The Dark Arts)',
     color: '#ef4444',
     desc: 'Full-spectrum reverse engineering across platforms. Ripping apart Windows binaries with IDA Pro and WinDbg, decompiling Android bytecode, and tearing through firmware to understand how software works when the source code is hiding from me.',
     tags: ['IDA Pro', 'WinDbg', 'x64dbg', 'JADX', 'Firmware'],
-    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`
+    icon: 'shield'
   },
   {
     title: 'DevOps & Fragile Tooling',
     color: '#f59e0b',
     desc: 'Setting up automated pipelines, containerizing environments with Docker, and building custom developer scripts. I spend hours optimizing workflows just to save five minutes of manual deployment labor, like a true professional.',
     tags: ['Docker', 'GitHub Actions', 'Linux', 'Bash'],
-    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`
+    icon: 'layers'
   },
   {
     title: 'AI/ML (Machine-Made Bugs)',
     color: '#9d6bf5',
     desc: 'Running training experiments and investigating the intersection of artificial intelligence with systems-level programming. I am actively teaching algorithms how to generate unmaintainable legacy code much faster than humanly possible.',
     tags: ['Python', 'ML', 'AI', 'Automation'],
-    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 8v4l3 3"/></svg>`
+    icon: 'brain'
   }
 ]
 

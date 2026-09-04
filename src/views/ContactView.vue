@@ -101,11 +101,13 @@
               <form class="contact-form" @submit.prevent="sendEmail">
                 <div class="form-group">
                   <label for="cf-name">Your Name</label>
-                  <input id="cf-name" v-model="form.name" type="text" placeholder="Ravindu Dilshan" required />
+                  <input id="cf-name" v-model="form.name" type="text" placeholder="Ravindu Dilshan" maxlength="80"
+                    required />
                 </div>
                 <div class="form-group">
                   <label for="cf-email">Your Email</label>
-                  <input id="cf-email" v-model="form.email" type="email" placeholder="cyberyakku@gmail.com" required />
+                  <input id="cf-email" v-model="form.email" type="email" placeholder="cyberyakku@gmail.com"
+                    maxlength="120" required />
                 </div>
                 <div class="form-group">
                   <label for="cf-subject">Subject</label>
@@ -120,7 +122,8 @@
                 <div class="form-group">
                   <label for="cf-msg">Message</label>
                   <textarea id="cf-msg" v-model="form.message"
-                    placeholder="Tell me about your project or opportunity..." rows="5" required></textarea>
+                    placeholder="Tell me about your project or opportunity..." rows="5" maxlength="2000"
+                    required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary w-full" style="justify-content:center">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -148,10 +151,19 @@ const form = reactive({
   message: ''
 })
 
+const SUBJECTS = ['Project Inquiry', 'Full-time Opportunity', 'Freelance Work', 'Collaboration', 'Other']
+
 function sendEmail() {
   const to = 'manojlakmal999@gmail.com'
-  const subject = encodeURIComponent(`[Portfolio] ${form.subject} from ${form.name}`)
-  const body = encodeURIComponent(`Hi Lakmal,\n\n${form.message}\n\nBest regards,\n${form.name}\n${form.email}`)
+  // Everything the visitor typed is length-capped and percent-encoded before it
+  // reaches the mailto: URL, so it cannot smuggle extra parameters (e.g. an
+  // added `&bcc=`) into the link handed to the mail client.
+  const clip = (value, max) => String(value ?? '').slice(0, max)
+  const chosen = SUBJECTS.includes(form.subject) ? form.subject : 'Other'
+  const subject = encodeURIComponent(`[Portfolio] ${chosen} from ${clip(form.name, 80)}`)
+  const body = encodeURIComponent(
+    `Hi Lakmal,\n\n${clip(form.message, 2000)}\n\nBest regards,\n${clip(form.name, 80)}\n${clip(form.email, 120)}`
+  )
   window.location.href = `mailto:${to}?subject=${subject}&body=${body}`
 }
 </script>

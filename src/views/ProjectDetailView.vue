@@ -1,7 +1,7 @@
 <template>
   <div class="detail-page" v-if="project">
     <!-- Hero -->
-    <section id="detail-hero" class="detail-hero section-sm" :style="{ '--project-color': project.color }">
+    <section id="detail-hero" class="detail-hero section-sm" :style="{ '--project-color': accent }">
       <div class="hero-bg-slider">
         <div 
           v-for="(bg, idx) in heroBackgrounds" 
@@ -31,7 +31,7 @@
           <h1>{{ project.title }}</h1>
           <p class="hero-subtitle">{{ project.subtitle }}</p>
           <div class="hero-actions">
-            <a v-if="project.demo" :href="project.demo" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+            <a v-if="demoUrl" :href="demoUrl" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                 <polyline points="15 3 21 3 21 9" />
@@ -39,7 +39,7 @@
               </svg>
               View Live
             </a>
-            <a v-if="project.github" :href="project.github" target="_blank" rel="noopener"
+            <a v-if="githubUrl" :href="githubUrl" target="_blank" rel="noopener noreferrer"
               class="btn btn-outline btn-lg">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path
@@ -92,7 +92,9 @@
             <div class="case-block reveal" v-if="project.architecture">
               <h2 class="block-title"><span class="block-num">04</span> Architecture</h2>
               <div class="arch-diagram card">
-                <div class="arch-mermaid" ref="mermaidEl" v-html="mermaidSvg"></div>
+                <!-- eslint-disable-next-line vue/no-v-html -- mermaid output is sanitized below -->
+                <div v-if="mermaidSvg" class="arch-mermaid" ref="mermaidEl" v-html="mermaidSvg"></div>
+                <pre v-else class="arch-fallback">{{ project.architecture }}</pre>
                 <details class="arch-source">
                   <summary>View diagram source</summary>
                   <pre><code>{{ project.architecture }}</code></pre>
@@ -107,11 +109,12 @@
             </div>
 
             <!-- Screenshots -->
-            <div class="case-block reveal" v-if="project.screenshots && project.screenshots.length">
+            <div class="case-block reveal" v-if="screenshots.length">
               <h2 class="block-title"><span class="block-num">06</span> Screenshots</h2>
               <div class="screenshots-grid">
-                <div v-for="(ss, i) in project.screenshots" :key="i" class="screenshot-wrap">
+                <div v-for="(ss, i) in screenshots" :key="i" class="screenshot-wrap">
                   <img :src="ss" :alt="`${project.title} screenshot ${i + 1}`" loading="lazy" class="screenshot"
+                    referrerpolicy="no-referrer"
                     @error="(e) => e.target.parentElement.style.display = 'none'" />
                 </div>
               </div>
@@ -165,7 +168,7 @@
             <div class="sidebar-card card reveal reveal-delay-2">
               <h3 class="sidebar-title">Links</h3>
               <div class="sidebar-links">
-                <a v-if="project.demo" :href="project.demo" target="_blank" rel="noopener" class="sidebar-link">
+                <a v-if="demoUrl" :href="demoUrl" target="_blank" rel="noopener noreferrer" class="sidebar-link">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="10" />
                     <line x1="2" y1="12" x2="22" y2="12" />
@@ -174,7 +177,7 @@
                   </svg>
                   Live Demo
                 </a>
-                <a v-if="project.github" :href="project.github" target="_blank" rel="noopener" class="sidebar-link">
+                <a v-if="githubUrl" :href="githubUrl" target="_blank" rel="noopener noreferrer" class="sidebar-link">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                     <path
                       d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
@@ -230,6 +233,7 @@
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useData } from '@/composables/useData'
+import { safeAssetUrl, safeColor, safeUrl } from '@/utils/security'
 
 const route = useRoute()
 const { loading, fetchData } = useData()
@@ -238,6 +242,15 @@ const mermaidSvg = ref('')
 
 const project = computed(() =>
   projects.value.find(p => p.slug === route.params.slug)
+)
+
+// Project data is fetched from a JSON file at runtime; validate every value
+// that ends up in an href/src/style before it reaches the DOM.
+const demoUrl = computed(() => safeUrl(project.value?.demo))
+const githubUrl = computed(() => safeUrl(project.value?.github))
+const accent = computed(() => safeColor(project.value?.color))
+const screenshots = computed(() =>
+  (project.value?.screenshots ?? []).map(safeAssetUrl).filter(Boolean)
 )
 
 const currentIndex = computed(() =>
@@ -254,10 +267,9 @@ const nextProject = computed(() =>
 const heroBackgrounds = computed(() => {
   if (!project.value) return []
   const imgs = []
-  if (project.value.thumbnail) imgs.push(project.value.thumbnail)
-  if (project.value.screenshots?.length) {
-    imgs.push(...project.value.screenshots)
-  }
+  const thumb = safeAssetUrl(project.value.thumbnail)
+  if (thumb) imgs.push(thumb)
+  imgs.push(...screenshots.value)
   return [...new Set(imgs)]
 })
 
@@ -284,9 +296,17 @@ onUnmounted(() => {
 async function renderMermaid() {
   if (!project.value?.architecture) return
   try {
-    const { default: mermaid } = await import('mermaid')
+    const [{ default: mermaid }, { default: DOMPurify }] = await Promise.all([
+      import('mermaid'),
+      import('dompurify')
+    ])
     mermaid.initialize({
-      startOnLoad: false, theme: 'dark', themeVariables: {
+      startOnLoad: false,
+      // 'strict' makes mermaid sanitize labels and disables click/script
+      // directives inside diagram source. Never lower this.
+      securityLevel: 'strict',
+      htmlLabels: false,
+      theme: 'dark', themeVariables: {
         primaryColor: '#7c3aed',
         primaryTextColor: '#f1f5f9',
         primaryBorderColor: '#7c3aed',
@@ -297,9 +317,18 @@ async function renderMermaid() {
     })
     const id = `mermaid-${Date.now()}`
     const { svg } = await mermaid.render(id, project.value.architecture)
-    mermaidSvg.value = svg
+    // Second, independent sanitization pass before the SVG is injected with
+    // v-html, so a mermaid sanitizer bypass alone is not enough for XSS.
+    mermaidSvg.value = DOMPurify.sanitize(svg, {
+      USE_PROFILES: { svg: true, svgFilters: true },
+      ADD_ATTR: ['transform-origin'],
+      // mermaid ships its theme CSS in an inline <style> inside the SVG.
+      FORBID_TAGS: ['script', 'foreignObject', 'iframe'],
+      FORBID_ATTR: ['xlink:href', 'href']
+    })
   } catch (e) {
-    mermaidSvg.value = `<p style="color:var(--color-text-muted);font-family:var(--font-mono);font-size:0.8rem">Architecture diagram</p><pre style="color:var(--color-text-faint)">${project.value.architecture}</pre>`
+    // Fall back to the raw diagram source rendered as *text* (see template).
+    mermaidSvg.value = ''
   }
 }
 

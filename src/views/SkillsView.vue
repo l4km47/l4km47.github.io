@@ -17,7 +17,7 @@
           <div v-for="(group, i) in skillGroups" :key="group.key" class="skill-group reveal"
             :class="`reveal-delay-${i + 1}`">
             <div class="group-header">
-              <div class="group-icon" v-html="group.icon"></div>
+              <div class="group-icon"><AppIcon :name="group.icon" :stroke-width="2" /></div>
               <h2 class="group-title">{{ group.label }}</h2>
             </div>
             <div class="skill-bars">
@@ -27,7 +27,7 @@
                   <span class="skill-level">{{ skill.level }}%</span>
                 </div>
                 <div class="skill-track">
-                  <div class="skill-fill" :style="{ '--skill-level': skill.level + '%', '--skill-color': skill.color }"
+                  <div class="skill-fill" :style="{ '--skill-level': safeLevel(skill.level), '--skill-color': safeColor(skill.color) }"
                     :class="{ animated: barsVisible }"></div>
                 </div>
               </div>
@@ -56,36 +56,41 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useData } from '@/composables/useData'
+import AppIcon from '@/components/ui/AppIcon.vue'
+import { safeColor } from '@/utils/security'
 
 const { loading, fetchData } = useData()
 const skills = ref(null)
 const barsVisible = ref(false)
 
+// Skill data is fetched from JSON — clamp/validate before it becomes CSS.
+const safeLevel = value => `${Math.min(100, Math.max(0, Number(value) || 0))}%`
+
 const skillGroups = [
   {
     key: 'languages',
     label: 'Languages',
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`
+    icon: 'code'
   },
   {
     key: 'frameworks',
     label: 'Frameworks & Runtimes',
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`
+    icon: 'monitor'
   },
   {
     key: 'systems',
     label: 'Systems & Security',
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`
+    icon: 'shield'
   },
   {
     key: 'tools',
     label: 'Tools & Databases',
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`
+    icon: 'wrench'
   },
   {
     key: 'hardware',
     label: 'Hardware & IT Infrastructure',
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M15 20v2M2 15h2M20 15h2M9 2v2M9 20v2M2 9h2M20 9h2"/></svg>`
+    icon: 'chip'
   }
 ]
 
